@@ -1,0 +1,17 @@
+$primary: steelblue;
+$secondary: gold;
+$font-primary: 'Lato', sans-serif;
+$footer-height: 60px;
+
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: $secondary;
+    p {
+      color: $primary;
+  
+        &:hover {
+            color: $secondary;
+        }
+    }
+  }

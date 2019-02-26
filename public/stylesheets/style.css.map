@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "style.css",
+	"sources": [
+		"../../SCSS/stylesheets/style.scss",
+		"../../SCSS/_base.scss",
+		"../../SCSS/_components.scss",
+		"../../SCSS/_layout.scss"
+	],
+	"names": [],
+	"mappings": "AGKA,AAAA,IAAI,CAAC;EACD,OAAO,EAAE,IAAI;EACb,IAAI,EAAE,kDAAkD;EACxD,KAAK,EAPG,IAAI,GAeb;EAXH,AAII,IAJA,CAIA,CAAC,CAAC;IACA,KAAK,EAVD,SAAS,GAed;IAVL,AAOQ,IAPJ,CAIA,CAAC,AAGI,MAAM,CAAC;MACJ,KAAK,EAZL,IAAI,GAaP"
+}

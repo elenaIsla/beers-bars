@@ -1,0 +1,10 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: gold; }
+  body p {
+    color: steelblue; }
+    body p:hover {
+      color: gold; }
+
+/*# sourceMappingURL=style.css.map */
