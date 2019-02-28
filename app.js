@@ -17,17 +17,17 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 // mongodb connect
-// const dbName = 'YOUR-DATABASE-NAME';
-// (async () => {
-//   try{
-//     await mongoose.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true });
-//     console.log(`Conected to ${dbName}`);
-//   }catch{
-//     err => {
-//       console.error(`Error conecting to ${dbName}. `, err);
-//     }
-//   }
-// })();
+const dbName = 'user';
+(async () => {
+  try{
+    await mongoose.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true });
+    console.log(`Conected to ${dbName}`);
+  }catch{
+    err => {
+      console.error(`Error conecting to ${dbName}. `, err);
+    }
+  }
+})();
 
 const app = express();
 
@@ -40,7 +40,7 @@ app.use(sassMiddleware({
 }));
 
 // app title
-app.locals.title = "Start Kit";
+app.locals.title = "Bars&Beers";
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
