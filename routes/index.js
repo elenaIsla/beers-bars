@@ -31,7 +31,7 @@ router.post("/signup", (req, res, next) => {
     password: hashPass
   })
   .then(() => {
-    res.redirect("/");
+    res.redirect("/bars&beers");
   })
   .catch(error => {
     console.log(error);

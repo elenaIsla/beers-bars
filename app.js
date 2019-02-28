@@ -14,7 +14,7 @@ const sassMiddleware = require('node-sass-middleware');
 // const { notifications } = require('./middlewares');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const BandBRouter = require('./routes/BandB');
 
 // mongodb connect
 const dbName = 'user';
@@ -76,7 +76,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(notifications);
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/bars&beers', BandBRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
