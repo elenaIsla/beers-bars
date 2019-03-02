@@ -47,30 +47,27 @@ router.post("/login", (req, res, next) => {
     res.render("auth/login", {
       errorMessage: "Please enter both, username and password to sign up."
     });
-    return;
+  } else {
+    User.findOne({ "username": username })
+    .then(user => {
+        if (!user) {
+          res.render("auth/login", {
+            errorMessage: "The username doesn't exist."
+          });
+        } else if (bcrypt.compareSync(password, user.password)) {
+            // Save the login in the session!
+            req.session.currentUser = user;
+            res.redirect("/bars&beers");
+        } else {
+          res.render("auth/login", {
+            errorMessage: "Incorrect password"
+          });
+        }
+    })
+    .catch(error => {
+      next(error);
+    })
   }
-
-  User.findOne({ "username": username })
-  .then(user => {
-      if (!user) {
-        res.render("auth/login", {
-          errorMessage: "The username doesn't exist."
-        });
-        return;
-      }
-      if (bcrypt.compareSync(password, user.password)) {
-        // Save the login in the session!
-        req.session.currentUser = user;
-        res.render("BandB/homePage");
-      } else {
-        res.render("auth/login", {
-          errorMessage: "Incorrect password"
-        });
-      }
-  })
-  .catch(error => {
-    next(error);
-  })
 });
 
 router.get('/logout', (req, res, next) => {
