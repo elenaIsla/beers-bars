@@ -1,0 +1,10 @@
+<h1>Lista de usuarios</h1>
+
+<ul>
+    <% users.forEach((user) => { %>
+        <li><%= user.username %> 
+            <%= user.neighbourhood %>
+            <%= user.beerType %>
+        </li>
+   <% }) %>
+</ul>

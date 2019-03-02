@@ -18,16 +18,18 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.post("/signup", (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
+  const {username, password, neighbourhood, beerType} = req.body;
   const salt     = bcrypt.genSaltSync(bcryptSalt);
   const hashPass = bcrypt.hashSync(password, salt);
 
   User.create({
     username,
-    password: hashPass
+    password: hashPass,
+    neighbourhood,
+    beerType,
   })
-  .then(() => {
+  .then((user) => {
+    req.session.currentUser = user;
     res.redirect("/bars&beers");
   })
   .catch(error => {

@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const User = require('../models/user');
+
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -11,7 +13,13 @@ router.get('/beers', function(req, res, next) {
 });
 
 router.get('/users', function(req, res, next) {
-  res.render('BandB/userlist', { title: 'Bars&Beers'});
+  User.find()
+  .then((users) => {
+  res.render('BandB/userlist', { title: 'Bars&Beers', users});
+  })
+  .catch((error) => {
+    next(error);
+  });
 });
 
 router.get('/newbars', function(req, res, next) {
