@@ -17,7 +17,7 @@ const indexRouter = require('./routes/index');
 const BandBRouter = require('./routes/BandB');
 
 // mongodb connect
-const dbName = 'user';
+const dbName = 'barsANDbeers';
 (async () => {
   try{
     await mongoose.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true });

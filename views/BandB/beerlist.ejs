@@ -1,4 +1,14 @@
-<% if(currentUser.username === "Admin") { %>
+<% if(currentUser.username === "admin") { %>
     <a href="/bars&beers/createBeer">Create Beer</a>
 <% } %>
 
+<h1>Lista de Cervezas</h1>
+
+<ul>
+    <% beers.forEach((beer) => { %>
+        <li><%= beer.name %> 
+            <%= beer.description %>
+            <%= beer.foto %>
+        </li>
+   <% }) %>
+</ul>

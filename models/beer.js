@@ -6,11 +6,9 @@ const { ObjectId } = Schema.Types;
 const beerSchema = new Schema({
   name: String, 
   description: String, 
-  barDraft: {type: ObjectId, ref: 'Bar'},
-  barBottle: {type: ObjectId, ref: 'Bar'},
-
+  foto: String,
 })
 
-const myModel = mongoose.model('myModel', mySchema);
+const myModel = mongoose.model('Beers', beerSchema);
 
 module.exports = myModel;
