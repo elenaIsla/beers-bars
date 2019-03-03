@@ -10,9 +10,9 @@ const barSchema = new Schema({
         street: String,
         neighbourhood: String, 
         city: String, 
-    }
-  
-
+    },
+    BeersDraft: [{type: objectID, ref: 'beer'}],
+    BeersBottle: [{type: objectID, ref: 'beer'}],
 })
 
 const myModel = mongoose.model('myModel', mySchema);

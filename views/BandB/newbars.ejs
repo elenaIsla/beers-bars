@@ -1,0 +1,25 @@
+<form id="form" action="/bars&beers/newbars" method="POST">
+    <label for="name">Beer name</label><br>
+    <input type="text" name="name"
+      placeholder="Beer name">
+    <label for="description">Description</label><br>
+    <input type="text" name="description"
+        placeholder="description">
+    <h3>Address:</h3>
+    <label for="street">Street</label><br>
+    <input type="text" name="street"
+            placeholder="C/">
+    <label for="neighbourhood">Neighbourhood:</label>
+    <select name="neighbourhood" id="neighbourhood">
+        <option value="Poble Nou">Poble Nou</option>
+        <option value="Poble Sec">Poble Sec</option>
+        <option value="Sarria">Sarria</option>
+    </select>
+    <select name="city" id="city">
+        <option value="Barcelona">Barcelona</option>
+        <option value="Almeria">Almería</option>
+        <option value="Madrid">Madrid</option>
+    </select>
+    
+    <button type="submit">Create Bar</button>    
+</form>
