@@ -121,10 +121,11 @@ router.get('/users', function(req, res, next) {
 });
 
 /* GET draft beer bars page */
-router.get('/users', function(req, res, next) {
-  User.find()
-  .then((users) => {
-  res.render('BandB/userlist', { title: 'Bars&Beers', users});
+router.get('/:id/draftBars', function(req, res, next) {
+  const {id} = req.params;
+  Bar.find({BeersDraft: id})
+  .then((bars) => {
+  res.render('BandB/draftBarsList', { title: 'Bars&Beers', bars});
   })
   .catch((error) => {
     next(error);
