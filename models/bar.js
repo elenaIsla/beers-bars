@@ -5,16 +5,17 @@ const { ObjectId } = Schema.Types;
 
 const barSchema = new Schema({
     name: String, 
-    description: String, 
+    description: String,
     address: {
         street: String,
         neighbourhood: String, 
         city: String, 
-    },
-    BeersDraft: [{type: objectID, ref: 'beer'}],
-    BeersBottle: [{type: objectID, ref: 'beer'}],
+    }, 
+    BeersDraft: [{type: ObjectId, ref: 'Beer'}],
+    BeersBottle: [{type: ObjectId, ref: 'Beer'}],
+    
 })
 
-const myModel = mongoose.model('myModel', mySchema);
+const myBar = mongoose.model('Barmodel', barSchema);
 
-module.exports = myModel;
+module.exports = myBar;

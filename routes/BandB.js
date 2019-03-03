@@ -2,10 +2,43 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const Beer = require('../models/beer');
+const Bar = require('../models/bar');
 
 /* GET bars&beers homepage. */
 router.get('/', function(req, res, next) {
   res.render('BandB/homePage', { title: 'Bars&Beers'});
+});
+
+/* GET-POST newbars FORM page*/
+router.get('/newbars', function(req, res, next) {
+  Beer.find()
+  .then((beers) => {
+  res.render('BandB/newbars', { title: 'Bars&Beers', beers});
+  })
+  .catch((error) => {
+    next(error);
+  })
+});
+
+router.post('/newbars', (req, res, next) => {
+  const {name, description, street, neighbourhood, city, BeersDraft, BeersBottle} = req.body;
+  Bar.create({
+    name,
+    description,
+    address:{  
+    street,
+    neighbourhood,
+    city,
+    },
+    BeersDraft,
+    BeersBottle,
+  })
+  .then((bar) => {
+    res.redirect("/bars&beers");
+  })
+  .catch((error) => {
+    next(error);
+  });
 });
 
 /* GET-POST page create beer Form */
@@ -87,9 +120,16 @@ router.get('/users', function(req, res, next) {
   });
 });
 
-/* GET newbars FORM page*/
-router.get('/newbars', function(req, res, next) {
-  res.render('BandB/newbars', { title: 'Bars&Beers'});
+/* GET draft beer bars page */
+router.get('/users', function(req, res, next) {
+  User.find()
+  .then((users) => {
+  res.render('BandB/userlist', { title: 'Bars&Beers', users});
+  })
+  .catch((error) => {
+    next(error);
+  });
 });
+
 
 module.exports = router;

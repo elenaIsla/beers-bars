@@ -1,7 +1,7 @@
 <form id="form" action="/bars&beers/newbars" method="POST">
-    <label for="name">Beer name</label><br>
+    <label for="name">Bar name</label><br>
     <input type="text" name="name"
-      placeholder="Beer name">
+      placeholder="Bar name">
     <label for="description">Description</label><br>
     <input type="text" name="description"
         placeholder="description">
@@ -20,6 +20,14 @@
         <option value="Almeria">Almería</option>
         <option value="Madrid">Madrid</option>
     </select>
+    <h3>Draft Beers</h3>
+    <% beers.forEach((beer) => { %>
+        <input type="checkbox" name="BeersDraft" value="<%= beer._id %>"><%= beer.name %>
+    <% }) %>
+    <h3>Bottle Beers</h3>
+    <% beers.forEach((beer) => { %>
+        <input type="checkbox" name="BeersBottle" value="<%= beer._id %>"><%= beer.name %>
+    <% }) %>
     
     <button type="submit">Create Bar</button>    
 </form>
