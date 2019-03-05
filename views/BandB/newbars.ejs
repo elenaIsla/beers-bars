@@ -1,29 +1,52 @@
 <form id="form" action="/bars&beers/newbars" method="POST">
+
+    <label for="barType">Type of bar:</label>
+    <select name="barType" id="barType">
+        <option value="Bar">Bar</option>
+        <option value="Restaurante">Restaurante</option>
+        <option value="Taberna">Taberna</option>
+        <option value="Bodega">Bodega</option>
+        <option value="Casa">Casa</option>
+        <option value="Cockteleria">Cockteleria</option>
+        <option value="Cafeteria">Cafeteria</option>
+    </select>
+
     <label for="name">Bar name</label><br>
-    <input type="text" name="name"
-      placeholder="Bar name">
+    <input type="text" name="name" placeholder="Bar name">
+
+    <h3>Select category</h3>
+    <input type="radio" value="category" name="Manolo">
+    <label for="category">Manolo</label>
+    <input type="radio" value="category" name="Chino">
+    <label for="category">Chino</label>
+    <input type="radio" value="category" name="Moderno">
+    <label for="category">Moderno</label>
+
     <label for="description">Description</label><br>
-    <input type="text" name="description"
-        placeholder="description">
+    <input type="text" name="description" placeholder="description">
+
     <h3>Address:</h3>
     <label for="street">Street</label><br>
-    <input type="text" name="street"
-            placeholder="C/">
+    <input type="text" name="street" placeholder="C/">
+
     <label for="neighbourhood">Neighbourhood:</label>
     <select name="neighbourhood" id="neighbourhood">
         <option value="Poble Nou">Poble Nou</option>
         <option value="Poble Sec">Poble Sec</option>
         <option value="Sarria">Sarria</option>
     </select>
+
     <select name="city" id="city">
         <option value="Barcelona">Barcelona</option>
         <option value="Almeria">Almería</option>
         <option value="Madrid">Madrid</option>
     </select>
+
     <h3>Draft Beers</h3>
     <% beers.forEach((beer) => { %>
         <input type="checkbox" name="BeersDraft" value="<%= beer._id %>"><%= beer.name %>
     <% }) %>
+
     <h3>Bottle Beers</h3>
     <% beers.forEach((beer) => { %>
         <input type="checkbox" name="BeersBottle" value="<%= beer._id %>"><%= beer.name %>

@@ -4,13 +4,15 @@ const { Schema } = mongoose;
 const { ObjectId } = Schema.Types;
 
 const barSchema = new Schema({
-    name: String, 
+    barType: String,
+    name: {type: String, required: true, unique: true}, 
     description: String,
     address: {
         street: String,
         neighbourhood: String, 
         city: String, 
     }, 
+    category: String,
     BeersDraft: [{type: ObjectId, ref: 'Beer'}],
     BeersBottle: [{type: ObjectId, ref: 'Beer'}],
     

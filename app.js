@@ -11,7 +11,7 @@ const MongoStore = require('connect-mongo')(session);
 const sassMiddleware = require('node-sass-middleware');
 
 // notifications handle
-// const { notifications } = require('./middlewares');
+const { notifications } = require('./middlewares');
 
 const indexRouter = require('./routes/index');
 const BandBRouter = require('./routes/BandB');
@@ -67,13 +67,13 @@ app.use(session({
     maxAge: 24 * 60 * 60 * 1000,
   },
 }));
-// app.use(flash());
+app.use(flash());
 app.use((req, res, next) => {
   // app.locals.currentUser = req.session.currentUser;
   res.locals.currentUser = req.session.currentUser;
   next();
 });
-// app.use(notifications);
+app.use(notifications);
 
 app.use('/', indexRouter);
 app.use('/bars&beers', BandBRouter);

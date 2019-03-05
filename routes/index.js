@@ -14,31 +14,47 @@ router.get('/', (req, res, next) => {
 
 
 router.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
+  res.render("auth/signup", {errorMessage: req.flash('error')});
 });
 
 router.post("/signup", (req, res, next) => {
   const {username, password, neighbourhood, beerType} = req.body;
-  const salt     = bcrypt.genSaltSync(bcryptSalt);
-  const hashPass = bcrypt.hashSync(password, salt);
+  
+  if (username === '' || password === '' ) {
+    req.flash('error', 'please enter a username or password');
+    return res.redirect('/signup');
+  }
+  User.findOne({username})
+    .then((user) => {
+      if(user){
+        req.flash('error', 'this username already exists');
+        return res.redirect('/signup');
+      } else {
+        const salt     = bcrypt.genSaltSync(bcryptSalt);
+        const hashPass = bcrypt.hashSync(password, salt);
 
-  User.create({
-    username,
-    password: hashPass,
-    neighbourhood,
-    beerType,
-  })
-  .then((user) => {
-    req.session.currentUser = user;
-    res.redirect("/bars&beers");
-  })
-  .catch(error => {
-    console.log(error);
-  })
+        User.create({
+          username,
+          password: hashPass,
+          neighbourhood,
+          beerType,
+        })
+        .then((user) => {
+          req.session.currentUser = user;
+          res.redirect("/bars&beers");
+        })
+        .catch((error) => {
+          next(error);
+        });
+      }
+    })
+    .catch((error) => {
+      next(error);
+    });
 });
 
 router.get("/login", (req, res, next) => {
-  res.render("auth/login", {errorMessage: "Please enter the username and password"});
+  res.render("auth/login", {errorMessage: req.flash('error')});
 });
 
 router.post("/login", (req, res, next) => {
@@ -46,24 +62,22 @@ router.post("/login", (req, res, next) => {
   
 
   if (username === "" || password === "") {
-    res.render("auth/login", {
-      errorMessage: "Please enter both, username and password to sign up."
-    });
+    req.flash('error', 'please enter a username or password');
+    return res.redirect("/login", );
   } else {
     User.findOne({ "username": username })
     .then(user => {
         if (!user) {
-          res.render("auth/login", {
-            errorMessage: "The username doesn't exist."
-          });
+          req.flash('error', 'this username does not exists')
+          return res.redirect("/login");
         } else if (bcrypt.compareSync(password, user.password)) {
-            // Save the login in the session!
-            req.session.currentUser = user;
-            res.redirect("/bars&beers");
+          // Save the login in the session!
+          req.session.currentUser = user;
+          req.flash('success', 'successful login!');
+          return res.redirect("/bars&beers");
         } else {
-          res.render("auth/login", {
-            errorMessage: "Incorrect password"
-          });
+          req.flash('error', 'incorrect user');
+          return res.redirect("/login");
         }
     })
     .catch(error => {

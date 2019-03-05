@@ -21,24 +21,38 @@ router.get('/newbars', function(req, res, next) {
 });
 
 router.post('/newbars', (req, res, next) => {
-  const {name, description, street, neighbourhood, city, BeersDraft, BeersBottle} = req.body;
-  Bar.create({
-    name,
-    description,
-    address:{  
-    street,
-    neighbourhood,
-    city,
-    },
-    BeersDraft,
-    BeersBottle,
-  })
-  .then((bar) => {
-    res.redirect("/bars&beers");
-  })
-  .catch((error) => {
-    next(error);
-  });
+  const {barType, name, description, street, neighbourhood, city, category, BeersDraft, BeersBottle} = req.body;
+  
+  Bar.findOne({name})
+    .then((nameBar) => {
+      if(nameBar){
+        req.flash('error', 'this bar already exists');
+        return res.redirect('/bars&beers/newbars');
+      } else {
+        Bar.create({
+          barType,
+          name,
+          description,
+          address:{  
+          street,
+          neighbourhood,
+          city,
+          category,
+          },
+          BeersDraft,
+          BeersBottle,
+        })
+        .then((bar) => {
+          res.redirect("/bars&beers");
+        })
+        .catch((error) => {
+          next(error);
+        })
+      .catch((error) => {
+        next(error);
+      });
+      };
+    });
 });
 
 /* GET-POST page create beer Form */
@@ -62,6 +76,7 @@ router.post('/createBeer', (req, res, next) => {
 });
 
 /* GET-POST  updateBeer page and updateFORM */
+
 router.get('/:id/updateBeer', (req, res, next) => {
   const {id} = req.params;
   Beer.findById(id)
@@ -132,5 +147,16 @@ router.get('/:id/draftBars', function(req, res, next) {
   });
 });
 
+/* GET bottle beer bars page */
+router.get('/:id/bottleBars', function(req, res, next) {
+  const {id} = req.params;
+  Bar.find({BeersBottle: id})
+  .then((bars) => {
+  res.render('BandB/bottleBarsList', { title: 'Bars&Beers', bars});
+  })
+  .catch((error) => {
+    next(error);
+  });
+});
 
 module.exports = router;
