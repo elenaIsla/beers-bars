@@ -2,7 +2,7 @@
 
 <ul>
     <% users.forEach((user) => { %>
-        <li><%= user.username %> 
+        <li><a href="/bars&beers/<%= user._id %>/userProfile"><%= user.username %> </a>
             <%= user.neighbourhood %>
             <%= user.beerType %>
         </li>

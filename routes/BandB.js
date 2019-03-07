@@ -22,7 +22,7 @@ router.get('/newbars', function(req, res, next) {
 
 router.post('/newbars', (req, res, next) => {
   const {barType, name, description, street, neighbourhood, city, category, BeersDraft, BeersBottle} = req.body;
-  
+  const creator = req.session.currentUser._id;
   Bar.findOne({name})
     .then((nameBar) => {
       if(nameBar){
@@ -41,6 +41,7 @@ router.post('/newbars', (req, res, next) => {
           },
           BeersDraft,
           BeersBottle,
+          creator,
         })
         .then((bar) => {
           res.redirect("/bars&beers");
@@ -153,6 +154,25 @@ router.get('/:id/bottleBars', function(req, res, next) {
   Bar.find({BeersBottle: id})
   .then((bars) => {
   res.render('BandB/bottleBarsList', { title: 'Bars&Beers', bars});
+  })
+  .catch((error) => {
+    next(error);
+  });
+});
+
+/* GET user profile page */
+router.get('/:iduser/userProfile', function(req, res, next) {
+  const {iduser} = req.params;
+
+  User.findOne({_id:iduser})
+    .then((user) => {
+      Bar.find({creator: iduser})
+        .then((bars) => {
+          res.render('BandB/userProfile', { title: 'Bars&Beers', bars, user});
+        })
+        .catch((error) => {
+        next(error);
+    })
   })
   .catch((error) => {
     next(error);

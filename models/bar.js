@@ -15,7 +15,7 @@ const barSchema = new Schema({
     category: String,
     BeersDraft: [{type: ObjectId, ref: 'Beer'}],
     BeersBottle: [{type: ObjectId, ref: 'Beer'}],
-    
+    creator: {type: ObjectId, ref: 'User'},
 })
 
 const myBar = mongoose.model('Barmodel', barSchema);
