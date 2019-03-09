@@ -6,28 +6,36 @@ html {
     font-family: "Lato", sans-serif, "Gloria Hallelujah", cursive;
     font-size: 16px;
     color: gold; }
-    html body img {
-      display: block; }
     html body p {
       color: black; }
-      html body p:hover {
-        color: gold; }
-  html .container {
-    margin: 10%;
-    text-align: center; }
-  html h1 {
-    font-family: "Gloria Hallelujah", cursive;
-    font-size: 2rem;
-    color: black; }
-  html nav {
-    background-color: pink; }
+    html body h1 {
+      font-family: "Gloria Hallelujah", cursive;
+      font-size: 2rem;
+      color: black; }
+    html body h2 {
+      font-family: "Gloria Hallelujah", cursive;
+      font-size: 1.5rem;
+      color: black; }
+    html body h3 {
+      font-family: "Lato", sans-serif;
+      font-size: 1.2rem;
+      color: gold; }
+    html body .container {
+      margin: 10%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+
+nav {
+  background-color: pink; }
 
 a {
   background-color: gold;
   display: block;
   color: white;
   font-size: 2rem;
-  padding: 10% auto;
+  padding: 10px;
   text-align: center;
   margin: 10% auto;
   text-decoration: none; }
@@ -35,7 +43,45 @@ a {
     background-color: #8000ff; }
 
 img {
+  display: block;
   max-width: 100%; }
+
+label {
+  color: gold;
+  font-size: 1.2 rem; }
+
+button {
+  width: 100%;
+  border: 1px solid gold;
+  background-color: gold;
+  display: block;
+  color: white;
+  font-size: 2rem;
+  padding: 10px;
+  text-align: center;
+  margin: 10% auto;
+  text-decoration: none; }
+  button:hover {
+    background-color: #8000ff; }
+
+form {
+  display: flex;
+  flex-direction: column; }
+
+.login {
+  background-color: blue; }
+
+.signup {
+  background-color: green; }
+
+.login_link {
+  display: inline;
+  color: #8000ff;
+  background-color: white;
+  font-size: 1rem; }
+  .login_link:hover {
+    background-color: white;
+    color: gold; }
 
 html {
   font-size: 16px; }
@@ -44,20 +90,25 @@ html {
     font-family: "Lato", sans-serif, "Gloria Hallelujah", cursive;
     font-size: 16px;
     color: gold; }
-    html body img {
-      display: block; }
     html body p {
       color: black; }
-      html body p:hover {
-        color: gold; }
-  html .container {
-    margin: 10%;
-    text-align: center; }
-  html h1 {
-    font-family: "Gloria Hallelujah", cursive;
-    font-size: 2rem;
-    color: black; }
-  html nav {
-    background-color: pink; }
+    html body h1 {
+      font-family: "Gloria Hallelujah", cursive;
+      font-size: 2rem;
+      color: black; }
+    html body h2 {
+      font-family: "Gloria Hallelujah", cursive;
+      font-size: 1.5rem;
+      color: black; }
+    html body h3 {
+      font-family: "Lato", sans-serif;
+      font-size: 1.2rem;
+      color: gold; }
+    html body .container {
+      margin: 10%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
 
 /*# sourceMappingURL=style.css.map */

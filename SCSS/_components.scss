@@ -1,21 +1,50 @@
 @import 'layout';
 
+nav {
+    background-color: pink;
+
+}
 a {
     background-color: $secondary;
     display: block;
     color: $terciary;
     font-size: 2rem;
-    padding: 10% auto;
+    padding: 10px;
     text-align: center;
     margin: 10% auto;
     text-decoration: none;
     &:hover {
         background-color: $fourthy;
     }
-    
 }
 
 img {
-    
+    display: block;
     max-width: 100%;
+}
+
+label {
+    color: $secondary;
+    font-size: 1.2 rem;
+}
+button {
+    width: 100%;
+    border: 1px solid $secondary;
+    background-color: $secondary;
+    display: block;
+    color: $terciary;
+    font-size: 2rem;
+    padding: 10px;
+    text-align: center;
+    margin: 10% auto;
+    text-decoration: none;
+
+    &:hover {
+        background-color: $fourthy;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
 }

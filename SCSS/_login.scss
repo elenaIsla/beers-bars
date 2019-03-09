@@ -1,0 +1,10 @@
+.login_link {
+    display: inline;
+    color: $fourthy;
+    background-color: white;
+    font-size: 1rem;
+    &:hover{
+    background-color: white;
+    color: $secondary;
+    }
+}
