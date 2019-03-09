@@ -10,14 +10,14 @@ const bcryptSalt     = 10;
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Bars&Beers'});
+  res.render('index', { title: 'Bars&Beers', layout: 'layouts/home'});
 });
 
 
 router.get("/signup", (req, res, next) => {
   Beer.find()
   .then((beers) => {
-    res.render("auth/signup", {errorMessage: req.flash('error'), beers});
+    res.render("auth/signup", {errorMessage: req.flash('error'), beers, layout: 'layouts/home'});
   })
   .catch((error) => {
     next(error);
@@ -62,7 +62,7 @@ router.post("/signup", (req, res, next) => {
 });
 
 router.get("/login", (req, res, next) => {
-  res.render("auth/login", {errorMessage: req.flash('error')});
+  res.render("auth/login", {errorMessage: req.flash('error'), layout: 'layouts/home'});
 });
 
 router.post("/login", (req, res, next) => {

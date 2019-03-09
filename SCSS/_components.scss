@@ -1,0 +1,21 @@
+@import 'layout';
+
+a {
+    background-color: $secondary;
+    display: block;
+    color: $terciary;
+    font-size: 2rem;
+    padding: 10% auto;
+    text-align: center;
+    margin: 10% auto;
+    text-decoration: none;
+    &:hover {
+        background-color: $fourthy;
+    }
+    
+}
+
+img {
+    
+    max-width: 100%;
+}

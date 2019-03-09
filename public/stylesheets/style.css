@@ -1,10 +1,63 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: gold; }
-  body p {
-    color: steelblue; }
-    body p:hover {
-      color: gold; }
+@import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah");
+html {
+  font-size: 16px; }
+  html body {
+    padding: 50px;
+    font-family: "Lato", sans-serif, "Gloria Hallelujah", cursive;
+    font-size: 16px;
+    color: gold; }
+    html body img {
+      display: block; }
+    html body p {
+      color: black; }
+      html body p:hover {
+        color: gold; }
+  html .container {
+    margin: 10%;
+    text-align: center; }
+  html h1 {
+    font-family: "Gloria Hallelujah", cursive;
+    font-size: 2rem;
+    color: black; }
+  html nav {
+    background-color: pink; }
+
+a {
+  background-color: gold;
+  display: block;
+  color: white;
+  font-size: 2rem;
+  padding: 10% auto;
+  text-align: center;
+  margin: 10% auto;
+  text-decoration: none; }
+  a:hover {
+    background-color: #8000ff; }
+
+img {
+  max-width: 100%; }
+
+html {
+  font-size: 16px; }
+  html body {
+    padding: 50px;
+    font-family: "Lato", sans-serif, "Gloria Hallelujah", cursive;
+    font-size: 16px;
+    color: gold; }
+    html body img {
+      display: block; }
+    html body p {
+      color: black; }
+      html body p:hover {
+        color: gold; }
+  html .container {
+    margin: 10%;
+    text-align: center; }
+  html h1 {
+    font-family: "Gloria Hallelujah", cursive;
+    font-size: 2rem;
+    color: black; }
+  html nav {
+    background-color: pink; }
 
 /*# sourceMappingURL=style.css.map */

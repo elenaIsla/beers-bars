@@ -1,17 +1,49 @@
-$primary: steelblue;
+$primary: black;
 $secondary: gold;
+$terciary: white;
+$fourthy: #8000ff;
 $font-primary: 'Lato', sans-serif;
+$font-secundary: 'Gloria Hallelujah', cursive;
+$font-size: 16px;
 $footer-height: 60px;
 
-body {
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-    color: $secondary;
-    p {
-      color: $primary;
-  
-        &:hover {
-            color: $secondary;
+html {
+    font-size: $font-size;
+
+    body {
+        padding: 50px;
+        font-family: $font-primary, $font-secundary;
+        font-size: $font-size;
+        color: $secondary;
+        
+        
+        img {
+            display: block;
+        }
+        p {
+          color: $primary;
+      
+            &:hover {
+                color: $secondary;
+            }
         }
     }
-  }
+    
+    .container {
+        margin: 10%;
+        text-align: center;
+        
+    }
+    
+    h1 {
+        font-family: $font-secundary;
+        font-size: 2rem;
+        color: black;
+    }
+    nav {
+        background-color: pink;
+    
+    }
+    
+    
+}    
