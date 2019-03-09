@@ -68,6 +68,9 @@ form {
   display: flex;
   flex-direction: column; }
 
+.links {
+  width: 100%; }
+
 .login {
   background-color: blue; }
 
