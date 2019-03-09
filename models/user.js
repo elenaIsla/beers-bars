@@ -10,7 +10,7 @@ const userSchema = new Schema({
   neighbourhood: {type: String},
   beerType: {type: String}, 
   
-  favouriteBeers: {type: objectID, ref: 'Beer'}, 
+  favouriteBeers: [{type: ObjectId, ref: 'Beers'}], 
 
 
 }, { timestamps: true });

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 // User model
 const User           = require("../models/user");
+const Beer = require('../models/beer');
 // BCrypt to encrypt passwords
 const bcrypt         = require("bcrypt");
 const bcryptSalt     = 10;
@@ -14,11 +15,17 @@ router.get('/', (req, res, next) => {
 
 
 router.get("/signup", (req, res, next) => {
-  res.render("auth/signup", {errorMessage: req.flash('error')});
+  Beer.find()
+  .then((beers) => {
+    res.render("auth/signup", {errorMessage: req.flash('error'), beers});
+  })
+  .catch((error) => {
+    next(error);
+  })
 });
 
 router.post("/signup", (req, res, next) => {
-  const {username, password, neighbourhood, beerType} = req.body;
+  const {username, password, neighbourhood, beerType, favouriteBeers} = req.body;
   
   if (username === '' || password === '' ) {
     req.flash('error', 'please enter a username or password');
@@ -38,6 +45,7 @@ router.post("/signup", (req, res, next) => {
           password: hashPass,
           neighbourhood,
           beerType,
+          favouriteBeers,
         })
         .then((user) => {
           req.session.currentUser = user;

@@ -164,8 +164,11 @@ router.get('/:id/bottleBars', function(req, res, next) {
 router.get('/:iduser/userProfile', function(req, res, next) {
   const {iduser} = req.params;
 
-  User.findOne({_id:iduser})
+  
+  User.findById(iduser)
+    .populate('favouriteBeers')
     .then((user) => {
+      console.log('favouriteBeers');
       Bar.find({creator: iduser})
         .then((bars) => {
           res.render('BandB/userProfile', { title: 'Bars&Beers', bars, user});

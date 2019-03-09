@@ -1,5 +1,11 @@
 <h2><%= user.username %></h2>
 
+<ul><% user.favouriteBeers.forEach((beer) => { %>
+    <li>
+        <%= beer.name %>
+    </li>
+    <% }) %>
+</ul>
 <ul>
         <% bars.forEach((bar) => { %>
             

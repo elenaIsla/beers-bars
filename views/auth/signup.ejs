@@ -18,6 +18,12 @@
 
     <input type="radio" id="bottle" value="bottle" name="beerType">
     <label for="beerType">Bottle</label>
+
+    <h3>Choose your favorite beers</h3>
+        <% beers.forEach((beer) => { %> 
+            <input type="checkbox" id="" value="<%= beer._id %>" name="favouriteBeers">
+            <label for="favouriteBeers"><%= beer.name %></label>
+        <% }) %>    
       
 <button type="submit">Create account</button>
     
