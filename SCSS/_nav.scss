@@ -1,0 +1,42 @@
+nav {
+    background-color: $secondary;
+    width: 100%;
+   
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    &:hover {
+      background-color: $secondary;
+      }
+        
+    h2 {
+        flex-grow: 3;
+        } 
+   
+    a {
+      
+      padding: 6px 12px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      flex-grow: 0.33;
+    }
+    p {
+       font-size: 0.7rem;
+       flex-grow: 0.33;
+       
+    }
+    
+    .nav-bar {
+       color: $primary;
+       display: inline;
+    }
+    .nav-link {
+       display: inline;
+       color: $primary;
+    }
+    .title-center {
+        text-align: center;
+    }
+  }
+
