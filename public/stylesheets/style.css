@@ -119,28 +119,40 @@ input[type=radio] {
 input[type=checkbox] {
   padding: 5px 10px 0 5px; }
 
+footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 40px;
+  width: 100%;
+  background-color: #f4c734;
+  color: black;
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 15px 10px 0px; }
+
 nav {
   background-color: #f4c734;
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  padding: 10px 0; }
   nav:hover {
     background-color: #f4c734; }
-  nav h2 {
-    flex-grow: 3; }
   nav a {
-    padding: 6px 12px;
+    padding: 1px 15px;
     text-decoration: none;
-    font-size: 0.8rem;
-    flex-grow: 0.33; }
+    font-size: 0.8rem; }
   nav p {
     font-size: 0.7rem;
-    flex-grow: 0.33; }
+    text-align: center; }
   nav .nav-bar {
     color: black;
-    display: inline; }
+    display: inline;
+    padding: 10px 0px;
+    border: 1px solid blue; }
   nav .nav-link {
     display: inline;
     color: black; }

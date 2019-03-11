@@ -100,3 +100,15 @@ input[type=radio] {
 input[type=checkbox] {
     padding: 5px 10px 0 5px;
 }
+footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:40px;
+    width:100%;
+    background-color: $secondary;
+    color: $primary;
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 15px 10px 0px;
+ }
