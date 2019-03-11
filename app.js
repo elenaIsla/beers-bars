@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const createError = require('http-errors');
 const flash = require('connect-flash');
 const express = require('express');
@@ -20,7 +22,7 @@ const BandBRouter = require('./routes/BandB');
 const dbName = 'barsANDbeers';
 (async () => {
   try{
-    await mongoose.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true });
+    await mongoose.connect(`${process.env.MONGODB_URI}`, { useNewUrlParser: true });
     console.log(`Conected to ${dbName}`);
   }catch{
     err => {

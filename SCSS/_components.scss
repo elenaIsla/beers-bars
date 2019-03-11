@@ -1,18 +1,20 @@
 @import 'layout';
 
-nav {
-    background-color: pink;
 
-}
+
+
 a {
     background-color: $secondary;
     display: block;
     color: $terciary;
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 10px;
     text-align: center;
     margin: 10% auto;
     text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     &:hover {
         background-color: $fourthy;
     }
@@ -26,18 +28,25 @@ img {
 label {
     color: $secondary;
     font-size: 1.2 rem;
+    text-align: left;
+    padding: 10px 0 0;
+    
 }
+
 button {
     width: 100%;
     border: 1px solid $secondary;
     background-color: $secondary;
     display: block;
     color: $terciary;
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 10px;
     text-align: center;
     margin: 10% auto;
     text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 
     &:hover {
         background-color: $fourthy;
@@ -47,4 +56,59 @@ button {
 form {
     display: flex;
     flex-direction: column;
+    margin: 5% 0% 0%;
+    width: 100%;
 }
+
+
+input[type=text] {
+    width: 100%;
+    padding: 5px 0%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #3d397c;
+    color: #3d397c;
+    font-size: 1.2rem;
+  }
+
+  input[type=password] {
+    width: 100%;
+    padding: 5px 0%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #3d397c;
+    color: #3d397c;
+    font-size: 1.2rem;
+  }
+  
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px $terciary inset !important;
+}
+
+select {
+    padding: 5px 0px;
+    font-size: 1.1rem;
+
+}
+input[type=radio] {
+    padding: 0 10px 0 0;
+}
+
+input[type=checkbox] {
+    padding: 5px 10px 0 5px;
+}
+footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:40px;
+    width:100%;
+    background-color: $secondary;
+    color: $primary;
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 15px 10px 0px;
+ }

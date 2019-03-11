@@ -1,41 +1,53 @@
 $primary: black;
-$secondary: gold;
-$terciary: white;
+$secondary:#f4c734;
+$terciary: #fcfffa;
 $fourthy: #8000ff;
-$font-primary: 'Lato', sans-serif;
+$fifthy: #00b084;
+$sixthy: #3d397c;
+$font-primary: 'Open Sans', sans-serif;
 $font-secundary: 'Gloria Hallelujah', cursive;
 $font-size: 16px;
 $footer-height: 60px;
 
 html {
     font-size: $font-size;
+    font-family: $font-primary;
 
     body {
-        padding: 50px;
+        padding: 0% 0%;
         font-family: $font-primary, $font-secundary;
         font-size: $font-size;
         color: $secondary;
-          
+        background-color: #fcfffa;
+        div {
+            max-width: 100%;
+        }
         p {
-          color: $primary;
+            padding: 10% 0%;
+            color: $primary;
         }
         h1 {
+            padding: 5% 0%;
             font-family: $font-secundary;
             font-size: 2rem;
-            color: black;
+            color: $primary;
         }
         h2 {
             font-family: $font-secundary;
             font-size: 1.5rem;
-            color: black;
+            color: $primary;
+            padding: 5% 0% 10% 0%;
         }
         h3 {
             font-family: $font-primary;
             font-size: 1.2rem;
             color: $secondary;
+            padding: 2% 0% 2% 0%;
         }
         .container {
-            margin: 10%;
+            padding: 10% 10%;
+            
+            margin: 0%;
             text-align: center;
             display: flex;
             flex-direction: column;

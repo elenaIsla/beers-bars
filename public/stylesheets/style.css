@@ -1,44 +1,54 @@
 @import url("https://fonts.googleapis.com/css?family=Gloria+Hallelujah");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 html {
-  font-size: 16px; }
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif; }
   html body {
-    padding: 50px;
-    font-family: "Lato", sans-serif, "Gloria Hallelujah", cursive;
+    padding: 0% 0%;
+    font-family: "Open Sans", sans-serif, "Gloria Hallelujah", cursive;
     font-size: 16px;
-    color: gold; }
+    color: #f4c734;
+    background-color: #fcfffa; }
+    html body div {
+      max-width: 100%; }
     html body p {
+      padding: 10% 0%;
       color: black; }
     html body h1 {
+      padding: 5% 0%;
       font-family: "Gloria Hallelujah", cursive;
       font-size: 2rem;
       color: black; }
     html body h2 {
       font-family: "Gloria Hallelujah", cursive;
       font-size: 1.5rem;
-      color: black; }
+      color: black;
+      padding: 5% 0% 10% 0%; }
     html body h3 {
-      font-family: "Lato", sans-serif;
+      font-family: "Open Sans", sans-serif;
       font-size: 1.2rem;
-      color: gold; }
+      color: #f4c734;
+      padding: 2% 0% 2% 0%; }
     html body .container {
-      margin: 10%;
+      padding: 10% 10%;
+      margin: 0%;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center; }
 
-nav {
-  background-color: pink; }
-
 a {
-  background-color: gold;
+  background-color: #f4c734;
   display: block;
-  color: white;
-  font-size: 2rem;
+  color: #fcfffa;
+  font-size: 1.5rem;
   padding: 10px;
   text-align: center;
   margin: 10% auto;
-  text-decoration: none; }
+  text-decoration: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
   a:hover {
     background-color: #8000ff; }
 
@@ -47,32 +57,135 @@ img {
   max-width: 100%; }
 
 label {
-  color: gold;
-  font-size: 1.2 rem; }
+  color: #f4c734;
+  font-size: 1.2 rem;
+  text-align: left;
+  padding: 10px 0 0; }
 
 button {
   width: 100%;
-  border: 1px solid gold;
-  background-color: gold;
+  border: 1px solid #f4c734;
+  background-color: #f4c734;
   display: block;
-  color: white;
-  font-size: 2rem;
+  color: #fcfffa;
+  font-size: 1.5rem;
   padding: 10px;
   text-align: center;
   margin: 10% auto;
-  text-decoration: none; }
+  text-decoration: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
   button:hover {
     background-color: #8000ff; }
 
 form {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  margin: 5% 0% 0%;
+  width: 100%; }
+
+input[type=text] {
+  width: 100%;
+  padding: 5px 0%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #3d397c;
+  color: #3d397c;
+  font-size: 1.2rem; }
+
+input[type=password] {
+  width: 100%;
+  padding: 5px 0%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid #3d397c;
+  color: #3d397c;
+  font-size: 1.2rem; }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #fcfffa inset !important; }
+
+select {
+  padding: 5px 0px;
+  font-size: 1.1rem; }
+
+input[type=radio] {
+  padding: 0 10px 0 0; }
+
+input[type=checkbox] {
+  padding: 5px 10px 0 5px; }
+
+footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 40px;
+  width: 100%;
+  background-color: #f4c734;
+  color: black;
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 15px 10px 0px; }
+
+nav {
+  background-color: #f4c734;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0; }
+  nav:hover {
+    background-color: #f4c734; }
+  nav a {
+    padding: 1px 15px;
+    text-decoration: none;
+    font-size: 0.8rem; }
+  nav p {
+    font-size: 0.7rem;
+    text-align: center; }
+  nav .nav-bar {
+    color: black;
+    display: inline;
+    padding: 10px 0px;
+    border: 1px solid blue; }
+  nav .nav-link {
+    display: inline;
+    color: black; }
+  nav .title-center {
+    text-align: center; }
+
+.hompePage-box {
+  width: 100%;
+  padding: 5% 0% 5% 3%;
+  color: black;
+  background-color: #ffffff;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  margin: 7% 0%; }
+
+.img-box {
+  flex-grow: 1;
+  padding: 3%; }
+
+.text-box {
+  flex-grow: 1;
+  align-self: flex-start;
+  padding: 3% 15% 3% 0%; }
+
+.login-container {
+  width: 100%; }
 
 .login {
-  background-color: blue; }
+  background-color: #00b084; }
 
 .signup {
-  background-color: green; }
+  background-color: #3d397c;
+  border: 1px solid #3d397c; }
 
 .login_link {
   display: inline;
@@ -81,31 +194,71 @@ form {
   font-size: 1rem; }
   .login_link:hover {
     background-color: white;
-    color: gold; }
+    color: #f4c734; }
+
+.login-btn {
+  background-color: #00b084;
+  border: 1px solid #00b084; }
+
+.styled-select {
+  background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+  height: 29px;
+  overflow: hidden;
+  width: 240px;
+  margin: 10px 0; }
+
+.semi-square {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid black; }
+
+.blue {
+  background-color: #fcfffa;
+  border: 1px solid black; }
+
+.radio-input {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  flex-flow: row wrap; }
+
+.radio-btn {
+  color: black;
+  padding: 5px 15px 5px 5px; }
 
 html {
-  font-size: 16px; }
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif; }
   html body {
-    padding: 50px;
-    font-family: "Lato", sans-serif, "Gloria Hallelujah", cursive;
+    padding: 0% 0%;
+    font-family: "Open Sans", sans-serif, "Gloria Hallelujah", cursive;
     font-size: 16px;
-    color: gold; }
+    color: #f4c734;
+    background-color: #fcfffa; }
+    html body div {
+      max-width: 100%; }
     html body p {
+      padding: 10% 0%;
       color: black; }
     html body h1 {
+      padding: 5% 0%;
       font-family: "Gloria Hallelujah", cursive;
       font-size: 2rem;
       color: black; }
     html body h2 {
       font-family: "Gloria Hallelujah", cursive;
       font-size: 1.5rem;
-      color: black; }
+      color: black;
+      padding: 5% 0% 10% 0%; }
     html body h3 {
-      font-family: "Lato", sans-serif;
+      font-family: "Open Sans", sans-serif;
       font-size: 1.2rem;
-      color: gold; }
+      color: #f4c734;
+      padding: 2% 0% 2% 0%; }
     html body .container {
-      margin: 10%;
+      padding: 10% 10%;
+      margin: 0%;
       text-align: center;
       display: flex;
       flex-direction: column;

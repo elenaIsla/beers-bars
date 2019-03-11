@@ -1,3 +1,7 @@
+<div><h2>Bars & Beers</h2></div>
+
+<div><img src="img/beersmix.png" alt=""></div>
+
 <form id="form" action="/signup" method="POST">
     <label for="username">Username</label><br>
     <input type="text" name="username"
@@ -7,24 +11,31 @@
     <input type="password" name="password"
       placeholder="********">
     <label for="neighbourhood">Neighbourhood:</label>
+    <div class="styled-select blue semi-square">
     <select name="neighbourhood" id="neighbourhood">
         <option value="Poble Nou">Poble Nou</option>
         <option value="Poble Sec">Poble Sec</option>
         <option value="Sarria">Sarria</option>
+        <option value="Raval">Raval</option>
+        <option value="Borne">Borne</option>
+        <option value="La Barceloneta">La Barceloneta</option>
     </select>
+  </div>
     <h3>Choose your favourite Beer Type</h3>
+    <div class="radio-input">
     <input type="radio" id="draft" value="draft" name="beerType">
-    <label for="beerType">Draft</label>
-
+    <label class="radio-btn" for="beerType">Draft</label>
     <input type="radio" id="bottle" value="bottle" name="beerType">
-    <label for="beerType">Bottle</label>
+    <label class="radio-btn" for="beerType">Bottle</label>
+  </div>
 
     <h3>Choose your favorite beers</h3>
+    <div class="radio-input">
         <% beers.forEach((beer) => { %> 
             <input type="checkbox" id="" value="<%= beer._id %>" name="favouriteBeers">
-            <label for="favouriteBeers"><%= beer.name %></label>
+            <label class="radio-btn" for="favouriteBeers"><%= beer.name %></label>
         <% }) %>    
-      
-<button type="submit">Create account</button>
+      </div>
+<button class="signup" type="submit">Create account</button>
     
   </form>
