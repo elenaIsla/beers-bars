@@ -1,5 +1,14 @@
-<nav>
-    <a href="/bars&beers">Volver</a>
-    <p><%= currentUser.username %></p>
-    <a href="/logout">Logout</a>
+<nav class="nav-bar">
+    
+    <div>
+        <a class="nav-link" href="/bars&beers">&laquo; Back</a>
+    </div>
+    <div>
+        <h2 class="title-center">Bars & Beers</h2>
+    </div>
+    <div>
+        <p><%= currentUser.username %></p>
+        <a class="nav-link" href="/logout">Logout</a>
+    </div>
+
 </nav>

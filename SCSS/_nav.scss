@@ -1,0 +1,45 @@
+nav {
+    background-color: $secondary;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 10px 0;
+    &:hover {
+      background-color: $secondary;
+      }
+        
+   
+   
+    a {
+      padding: 1px 15px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      
+      
+    }
+    p {
+       font-size: 0.7rem;
+      
+       text-align: center;
+       
+       
+    }
+    
+    .nav-bar {
+       color: $primary;
+       display: inline;
+       padding: 10px 0px;
+       border: 1px solid blue;
+    }
+    .nav-link {
+       display: inline;
+       color: $primary;
+    }
+    .title-center {
+        text-align: center;
+    }
+  }
+

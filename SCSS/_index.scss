@@ -1,10 +1,12 @@
-.links {
+
+.login-container {
     width: 100%;
 }
 .login {
-    background-color: blue;
+    background-color: $fifthy;
     
 }
 .signup {
-    background-color: green;
+    background-color: $sixthy;
+    border: 1px solid $sixthy;
 }
