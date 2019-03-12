@@ -1,12 +1,22 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
 const User = require('../models/user');
 const Beer = require('../models/beer');
 const Bar = require('../models/bar');
 
+router.use(express.static(path.join(__dirname, '../public')));
+
 /* GET bars&beers homepage. */
 router.get('/', function(req, res, next) {
   res.render('BandB/homePage', { title: 'Bars&Beers'});
+  
+});
+
+/* GET bars&beers homepage. */
+router.get('/googlemap', function(req, res, next) {
+  res.render('BandB/googlemap', { title: 'Bars&Beers'});
+  
 });
 
 /* GET-POST newbars FORM page*/
@@ -116,6 +126,7 @@ router.post('/:id/delete', (req, res, next) => {
 
 /* GET beerlist page. */
 router.get('/beers', function(req, res, next) {
+  console.log();
   Beer.find()
   .then((beers) => {
   res.render('BandB/beerlist', { title: 'Bars&Beers', beers});
