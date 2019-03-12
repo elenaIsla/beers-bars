@@ -1,11 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const cloudinary = require('cloudinary');
+const cloudinaryStorage = require('multer-storage-cloudinary');
+const multer = require('multer');
 const User = require('../models/user');
 const Beer = require('../models/beer');
 const Bar = require('../models/bar');
 
 router.use(express.static(path.join(__dirname, '../public')));
+
+const storage = cloudinaryStorage({
+  cloudinary,
+  folder: 'img',
+  allowedFormats: ['jpg', 'png'],
+  transformation: [{ width: 200, height: 200, crop: 'limit' }],
+});
+
+const parser = multer({ storage });
 
 /* GET bars&beers homepage. */
 router.get('/', function(req, res, next) {
@@ -71,11 +83,13 @@ router.get('/createBeer', function(req, res, next) {
   res.render('BandB/createBeer', { title: 'Bars&Beers'});
 });
 
-router.post('/createBeer', (req, res, next) => {
+router.post('/createBeer',parser.single('image'), (req, res, next) => {
+  const beerlogoImage = req.file.url;
   const {name, description} = req.body;
   Beer.create({
     name,
     description,
+    beerlogoImage,
   
   })
   .then((beer) => {

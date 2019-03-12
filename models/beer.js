@@ -6,7 +6,7 @@ const { ObjectId } = Schema.Types;
 const beerSchema = new Schema({
   name: String, 
   description: String, 
-  foto: String,
+  beerlogoImage: String,
 })
 
 const myModel = mongoose.model('Beers', beerSchema);

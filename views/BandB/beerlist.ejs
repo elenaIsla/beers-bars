@@ -9,12 +9,13 @@
         <li>
             <%= beer.name %> 
             <%= beer.description %>
-            <%= beer.foto %>
+            <img src="<%= beer.beerlogoImage %>" alt="">
             <% if(currentUser.username === "admin") { %>
             <a href="/bars&beers/<%= beer._id %>/updateBeer">Update</a>
             <form action="/bars&beers/<%= beer._id %>/delete" method="post">
                 <input type="submit" value="delete">
             </form>
+            
             <% } %>
             
             <a href="/bars&beers/<%= beer._id %>/draftBars">Bars with this Draft Beer </a>

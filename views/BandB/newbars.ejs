@@ -49,7 +49,7 @@
 
     <h3>Bottle Beers</h3>
     <% beers.forEach((beer) => { %>
-        <input type="checkbox" name="BeersBottle" value="<%= beer._id %>"><%= beer.name %>
+        <input type="checkbox" name="BeersBottle" value="<%= beer._id %>"><img src="<%= beer.beerlogoImage %>" alt="">
     <% }) %>
     
     <button type="submit">Create Bar</button>    
