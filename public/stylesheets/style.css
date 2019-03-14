@@ -250,6 +250,9 @@ nav {
 .black {
   color: black; }
 
+.normal {
+  font-family: "Open Sans", sans-serif; }
+
 .login-container {
   width: 100%; }
 

@@ -11,7 +11,12 @@
             
             <li><%= bar.name %>
                 <%= bar.address.neighbourhood %>
-    
+            
+            <div class="card-CRUD">
+                    <form class="input_btn" action="/bars&beers/<%= bar._id %>/deleteBar" method="post">
+                    <input  type="submit" value="Delete">
+                    </form>
+            </div>
             </li>
         <% }) %>
 </ul>

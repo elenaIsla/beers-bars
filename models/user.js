@@ -12,6 +12,7 @@ const userSchema = new Schema({
   
   favouriteBeers: [{type: ObjectId, ref: 'Beers'}], 
 
+  userimage: String,
 
 }, { timestamps: true });
 

@@ -1,11 +1,14 @@
 
-<h1>List of Bars</h1>
+<h2 class="normal">List of Bars</h2>
 
 <ul>
     <% bars.forEach((bar) => { %>
         <li>
-            <%= bar.name %> 
-            <%= bar.description %>
+                <h3><%= bar.name %> </h3>
+                <%= bar.description %>
+               <p>Address: </p> <%= bar.address.street %>
+               <p> City: </p> <%= bar.address.city %>
+               <p>Neighbourhood: </p> <%= bar.address.neighbourhood %>
             
         </li>
    <% }) %>

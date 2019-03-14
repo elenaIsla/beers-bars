@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const cloudinary = require('cloudinary');
+const cloudinaryStorage = require('multer-storage-cloudinary');
+const multer = require('multer');
 // User model
 const User           = require("../models/user");
 const Beer = require('../models/beer');
@@ -7,6 +10,14 @@ const Beer = require('../models/beer');
 const bcrypt         = require("bcrypt");
 const bcryptSalt     = 10;
 
+const storage = cloudinaryStorage({
+  cloudinary,
+  folder: 'img',
+  allowedFormats: ['jpg', 'png'],
+  transformation: [{ width: 150, height: 150, crop: 'limit' }],
+});
+
+const parser = multer({ storage });
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -24,7 +35,7 @@ router.get("/signup", (req, res, next) => {
   })
 });
 
-router.post("/signup", (req, res, next) => {
+router.post("/signup", parser.single('image'), (req, res, next) => {
   const {username, password, neighbourhood, beerType, favouriteBeers} = req.body;
   
   if (username === '' || password === '' ) {
@@ -39,13 +50,14 @@ router.post("/signup", (req, res, next) => {
       } else {
         const salt     = bcrypt.genSaltSync(bcryptSalt);
         const hashPass = bcrypt.hashSync(password, salt);
-
+        const userimage = req.file.url;
         User.create({
           username,
           password: hashPass,
           neighbourhood,
           beerType,
           favouriteBeers,
+          userimage,
         })
         .then((user) => {
           req.session.currentUser = user;

@@ -5,6 +5,11 @@
         <li><a href="/bars&beers/<%= user._id %>/userProfile"><%= user.username %> </a>
             <%= user.neighbourhood %>
             <%= user.beerType %>
+            <div class="card-CRUD">
+                    <form class="input_btn" action="/bars&beers/<%= user._id %>/deleteUser" method="post">
+                    <input  type="submit" value="Delete">
+                    </form>
+            </div>
         </li>
    <% }) %>
 </ul>
