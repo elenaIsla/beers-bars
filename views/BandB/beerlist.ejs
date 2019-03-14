@@ -1,25 +1,46 @@
 <% if(currentUser.username === "admin") { %>
-    <a href="/bars&beers/createBeer">Create Beer</a>
+    <a class="btn-CRUD" href="/bars&beers/createBeer">Create Beer</a>
 <% } %>
 
-<h1>Lista de Cervezas</h1>
+<h3 class="heading-size">BEER LIST</h3>
+<p class="subheading">Search your favourite beer and find all bars with this drafted or bottled beer!</p>
 
-<ul>
     <% beers.forEach((beer) => { %>
-        <li>
-            <%= beer.name %> 
-            <%= beer.description %>
-            <img src="<%= beer.beerlogoImage %>" alt="">
-            <% if(currentUser.username === "admin") { %>
-            <a href="/bars&beers/<%= beer._id %>/updateBeer">Update</a>
-            <form action="/bars&beers/<%= beer._id %>/delete" method="post">
-                <input type="submit" value="delete">
-            </form>
-            
-            <% } %>
-            
-            <a href="/bars&beers/<%= beer._id %>/draftBars">Bars with this Draft Beer </a>
-            <a href="/bars&beers/<%= beer._id %>/bottleBars">Bars with this Bottle Beer </a>
-        </li>
+        <div class="hompePage-box">
+                 <div class="img-box">
+                    <img src="<%= beer.beerlogoImage %>" alt="">
+                 </div>
+
+                <div class="text-box space">
+                    <a class="green" href="/bars&beers/<%= beer._id %>/draftBars">
+                        <div class="img-box card_size">
+                            <img src="img/draft_beer.svg" alt="draft beer">
+                        </div>
+                        <div class="text-box">Draft</div>
+                    </a>
+                    <a class="bluecard" href="/bars&beers/<%= beer._id %>/bottleBars">
+                        <div class="img-box card_size">
+                            <img  src="img/bottle_beer.svg" alt="draft beer">
+                        </div>
+                        <div class="text-box">Bottle</div>
+                    </a>
+                </div>
+          
+        </div>
+        <% if(currentUser.username === "admin") { %>
+            <div class="flex">
+                <div class="card-CRUD">
+                    <a class="btn-CRUD" href="/bars&beers/<%= beer._id %>/updateBeer">Update</a>
+                </div>
+                <div class="card-CRUD">
+                    <form class="input_btn" action="/bars&beers/<%= beer._id %>/delete" method="post">
+                    <input  type="submit" value="Delete">
+                    </form>
+                </div>
+            </div>
+        
+        <% } %>
    <% }) %>
-</ul>
+    
+
+

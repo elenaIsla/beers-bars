@@ -33,7 +33,11 @@
     <select name="neighbourhood" id="neighbourhood">
         <option value="Poble Nou">Poble Nou</option>
         <option value="Poble Sec">Poble Sec</option>
+        <option value="Raval">Raval</option>
+        <option value="Borne">Borne</option>
+        <option value="Gótico">Gótico</option>
         <option value="Sarria">Sarria</option>
+        
     </select>
 
     <select name="city" id="city">
@@ -44,12 +48,12 @@
 
     <h3>Draft Beers</h3>
     <% beers.forEach((beer) => { %>
-        <input type="checkbox" name="BeersDraft" value="<%= beer._id %>"><%= beer.name %>
+        <input type="checkbox" name="BeersDraft" value="<%= beer._id %>"><img class="img-size" src="<%= beer.beerlogoImage %>" alt="">
     <% }) %>
 
     <h3>Bottle Beers</h3>
     <% beers.forEach((beer) => { %>
-        <input type="checkbox" name="BeersBottle" value="<%= beer._id %>"><img src="<%= beer.beerlogoImage %>" alt="">
+        <input type="checkbox" name="BeersBottle" value="<%= beer._id %>"><img class="img-size" src="<%= beer.beerlogoImage %>" alt="">
     <% }) %>
     
     <button type="submit">Create Bar</button>    

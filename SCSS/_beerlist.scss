@@ -1,0 +1,58 @@
+.green {
+    background-color: $fifthy;
+    display: flex;
+    
+   }
+
+.bluecard {
+    background-color: $sixthy;
+    display: flex;
+    
+}
+.space {
+    margin: 2% 0 0 0;
+    
+}
+.card_size {
+    width: 10px;
+    padding: 0 10px 0 0;
+}
+.heading-size {
+    font-size: 1.5rem;
+    color: $primary;
+}
+.subheading {
+    padding: 0;
+}
+
+.btn-CRUD {
+    background-color: grey;
+    font-size: 1rem;
+    
+}
+
+.flex {
+    display: flex;
+    margin: 0 0 10% 0;
+}
+.input_btn {
+    padding: 11%;
+    margin: 8px 0 0 0;
+    background-color: grey;
+    display: block;
+    color: $terciary;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    &:hover {
+        background-color: $fourthy;
+}
+}
+
+.card-CRUD {
+    margin: 0 5% 0 0;
+    width: 100%;
+}
