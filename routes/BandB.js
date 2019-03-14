@@ -21,7 +21,7 @@ const parser = multer({ storage });
 
 /* GET bars&beers homepage. */
 router.get('/', function(req, res, next) {
-  res.render('BandB/homePage', { title: 'Bars&Beers'});
+  res.render('BandB/homePage', { title: 'Bars&Beers', back: false});
   
 });
 
