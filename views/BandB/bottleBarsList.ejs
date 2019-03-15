@@ -2,12 +2,13 @@
 
 <ul>
     <% bars.forEach((bar) => { %>
+    <div class="hompePage-box">
         <h3><%= bar.name %> </h3>
         <%= bar.description %>
        <p>Address: </p> <%= bar.address.street %>
        <p> City: </p> <%= bar.address.city %>
        <p>Neighbourhood: </p> <%= bar.address.neighbourhood %>
-
+    </div>
 <div class="flex">
         <div class="card-CRUD">
             <form class="input_btn" action="/bars&beers/<%= bar._id %>/deleteBar" method="post">

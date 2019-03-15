@@ -253,6 +253,13 @@ nav {
 .normal {
   font-family: "Open Sans", sans-serif; }
 
+.block {
+  display: block;
+  text-align: left; }
+
+.text-distance {
+  padding: 2% 0 2% 3%; }
+
 .text-size {
   font-size: 1.1rem; }
 
@@ -266,6 +273,9 @@ nav {
 
 .user-box {
   padding: 5% 0 0 0; }
+
+.avatar {
+  width: 30%; }
 
 .login-container {
   width: 100%; }
