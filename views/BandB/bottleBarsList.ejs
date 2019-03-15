@@ -1,15 +1,18 @@
-<h2>Lista de Bars</h2>
+<h2>List of Bars with </h2>
 
 <ul>
     <% bars.forEach((bar) => { %>
-        <li>
-            <%= bar.name %> 
-            <%= bar.description %>
-            <%= bar.description %>
-            <%= bar.address.street %>
-            <%= bar.address.city %>
-            <%= bar.address.neighbourhood %>
-            
-        </li>
+        <h3><%= bar.name %> </h3>
+        <%= bar.description %>
+       <p>Address: </p> <%= bar.address.street %>
+       <p> City: </p> <%= bar.address.city %>
+       <p>Neighbourhood: </p> <%= bar.address.neighbourhood %>
+
+<div class="flex">
+        <div class="card-CRUD">
+            <form class="input_btn" action="/bars&beers/<%= bar._id %>/deleteBar" method="post">
+             <input  type="submit" value="Delete">
+            </form>
+        </div>
+</div>
    <% }) %>
-</ul>

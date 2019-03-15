@@ -36,7 +36,7 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.post("/signup", parser.single('image'), (req, res, next) => {
-  const {username, password, neighbourhood, beerType, favouriteBeers} = req.body;
+  const {username, password, city, neighbourhood, beerType, favouriteBeers} = req.body;
   
   if (username === '' || password === '' ) {
     req.flash('error', 'please enter a username or password');
@@ -54,6 +54,7 @@ router.post("/signup", parser.single('image'), (req, res, next) => {
         User.create({
           username,
           password: hashPass,
+          city,
           neighbourhood,
           beerType,
           favouriteBeers,

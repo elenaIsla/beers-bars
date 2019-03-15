@@ -1,15 +1,21 @@
 
 <h2 class="normal">List of Bars</h2>
 
-<ul>
+
     <% bars.forEach((bar) => { %>
-        <li>
+      
                 <h3><%= bar.name %> </h3>
                 <%= bar.description %>
                <p>Address: </p> <%= bar.address.street %>
                <p> City: </p> <%= bar.address.city %>
                <p>Neighbourhood: </p> <%= bar.address.neighbourhood %>
-            
-        </li>
+
+    <div class="flex">
+                <div class="card-CRUD">
+                    <form class="input_btn" action="/bars&beers/<%= bar._id %>/deleteBar" method="post">
+                     <input  type="submit" value="Delete">
+                    </form>
+                </div>
+    </div>
+       
    <% }) %>
-</ul>
