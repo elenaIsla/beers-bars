@@ -16,7 +16,9 @@ const barSchema = new Schema({
     BeersDraft: [{type: ObjectId, ref: 'Beer'}],
     BeersBottle: [{type: ObjectId, ref: 'Beer'}],
     creator: {type: ObjectId, ref: 'User'},
-})
+    location: { type: { type: String }, coordinates: [Number] },
+});
+barSchema.index({ location: '2dsphere' });
 
 const myBar = mongoose.model('Barmodel', barSchema);
 

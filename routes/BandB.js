@@ -25,10 +25,36 @@ router.get('/', function(req, res, next) {
   
 });
 
-/* GET bars&beers homepage. */
+/* GET bars&beers googlemap. */
 router.get('/googlemap', function(req, res, next) {
+
   res.render('BandB/googlemap', { title: 'Bars&Beers'});
   
+});
+
+/* GET bars&beers API. */
+router.get('/api', function(req, res, next) {
+  Bar.find({}, (error, allBarsFromDB) => {
+		if (error) { 
+			next(error); 
+		} else { 
+      res.status(200).json({ bars: allBarsFromDB });
+      console.log(allBarsFromDB);
+      // res.render('BandB/googlemap', { title: 'Bars&Beers', bars: allBarsFromDB});
+      
+		}
+	});
+});
+// probar la ruta api para un bar en particular /bars&beers/api/5c8c14f70213cf17a860ecbc
+router.get('/api/:id', (req, res, next) => {
+	let barId = req.params.id;
+	Bar.findOne({_id: barId}, (error, oneRestaurantFromDB) => {
+		if (error) { 
+			next(error) 
+		} else { 
+			res.status(200).json({ restaurant: oneRestaurantFromDB }); 
+		}
+	});
 });
 
 /* GET-POST newbars FORM page*/
@@ -45,6 +71,10 @@ router.get('/newbars', function(req, res, next) {
 router.post('/newbars', (req, res, next) => {
   const {barType, name, description, street, neighbourhood, city, category, BeersDraft, BeersBottle} = req.body;
   const creator = req.session.currentUser._id;
+  let location = {
+    type: 'Point',
+    coordinates: [req.body.longitude, req.body.latitude]
+    };
   Bar.findOne({name})
     .then((nameBar) => {
       if(nameBar){
@@ -64,6 +94,7 @@ router.post('/newbars', (req, res, next) => {
           BeersDraft,
           BeersBottle,
           creator,
+          location,
         })
         .then((bar) => {
           res.redirect("/bars&beers");

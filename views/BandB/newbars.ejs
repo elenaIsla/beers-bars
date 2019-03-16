@@ -1,3 +1,5 @@
+
+
 <form id="form" action="/bars&beers/newbars" method="POST">
 
     <label for="barType">Type of bar:</label>
@@ -51,6 +53,19 @@
     <% beers.forEach((beer) => { %>
         <input type="checkbox" name="BeersBottle" value="<%= beer._id %>"><img src="<%= beer.beerlogoImage %>" alt="">
     <% }) %>
-    
+
+    <label for="">Direccion Google</label>
+    <input id="address" type="textbox">
+    <input type="button" value="Encode" onclick="geocodeAddress()" id="submit">
+
+    <label>Geolocation:</label>
+        <input type="text" name="latitude" placeholder="latitude" id="latitude" >
+        <input type="text" name="longitude" placeholder="longitude" id="longitude">
     <button type="submit">Create Bar</button>    
 </form>
+
+<div id="map"></div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWv6vc64kLzD5S8sbIA0MsPtxQECIFzbQ"></script>
+<script type="text/javascript" src="/javascript/main.js"></script>
+
