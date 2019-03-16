@@ -2,7 +2,7 @@
 
 <div><img src="img/beersmix.png" alt=""></div>
 
-<form id="form" action="/signup" method="POST">
+<form id="form" action="/signup" enctype="multipart/form-data" method="POST">
     <label for="username">Username</label><br>
     <input type="text" name="username"
       placeholder="Your username">
@@ -10,6 +10,18 @@
     <label for="password">Password</label><br>
     <input type="password" name="password"
       placeholder="********">
+
+      <label for="city">City:</label>
+      <div class="styled-select blue semi-square">
+      <select name="city" id="city">
+          <option value="Barcelona">Barcelona</option>
+          <option value="Madrid">Madrid</option>
+          <option value="Valencia">Valencia</option>
+          <option value="Almería">Almería</option>
+          <option value="Granada">Granada</option>
+          <option value="Bilbao">Bilbao</option>
+      </select>
+      </div>
     <label for="neighbourhood">Neighbourhood:</label>
     <div class="styled-select blue semi-square">
     <select name="neighbourhood" id="neighbourhood">
@@ -36,6 +48,9 @@
             <label class="radio-btn" for="favouriteBeers"><%= beer.name %></label>
         <% }) %>    
       </div>
+
+    <label >Upload a picture of you</label><br>
+    <input type="file" name="image">
 <button class="signup" type="submit">Create account</button>
     
   </form>

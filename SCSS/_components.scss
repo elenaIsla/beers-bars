@@ -95,6 +95,7 @@ select {
 }
 input[type=radio] {
     padding: 0 10px 0 0;
+   
 }
 
 input[type=checkbox] {
@@ -111,4 +112,11 @@ footer {
     font-size: 0.7rem;
     text-align: center;
     padding: 15px 10px 0px;
+ }
+
+ input[type=submit] {
+    color: $terciary;
+    font-size: 1rem;
+    width: 100%;
+    
  }

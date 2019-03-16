@@ -17,12 +17,14 @@
     <input type="text" name="name" placeholder="Bar name">
 
     <h3>Select category</h3>
-    <input type="radio" value="category" name="Manolo">
-    <label for="category">Manolo</label>
-    <input type="radio" value="category" name="Chino">
-    <label for="category">Chino</label>
-    <input type="radio" value="category" name="Moderno">
-    <label for="category">Moderno</label>
+    <div class="bar">
+    <div class="checkbox"><input type="radio" value="category" name="Manolo"></div>
+    <div class="checkbox"><label class="black" for="category">Manolo</label></div>
+    <div class="checkbox"><input type="radio" value="category" name="Chino"></div>
+    <div class="checkbox"><label class="black" for="category">Chino</label></div>
+    <div class="checkbox"><input type="radio" value="category" name="Moderno"></div>
+    <div class="checkbox"><label class="black" for="category">Moderno</label></div>
+</div>
 
     <label for="description">Description</label><br>
     <input type="text" name="description" placeholder="description">
@@ -35,9 +37,13 @@
     <select name="neighbourhood" id="neighbourhood">
         <option value="Poble Nou">Poble Nou</option>
         <option value="Poble Sec">Poble Sec</option>
+        <option value="Raval">Raval</option>
+        <option value="Borne">Borne</option>
+        <option value="Gótico">Gótico</option>
         <option value="Sarria">Sarria</option>
+        
     </select>
-
+    <label for="City">City:</label>
     <select name="city" id="city">
         <option value="Barcelona">Barcelona</option>
         <option value="Almeria">Almería</option>
@@ -45,13 +51,32 @@
     </select>
 
     <h3>Draft Beers</h3>
+    <div class="bar">
     <% beers.forEach((beer) => { %>
-        <input type="checkbox" name="BeersDraft" value="<%= beer._id %>"><%= beer.name %>
+        <div class="flex location">
+            <div class="checkbox">
+                <input type="checkbox" name="BeersDraft" value="<%= beer._id %>">
+            </div>
+            <div class="img-beer">
+                <img class="img-size" src="<%= beer.beerlogoImage %>" alt="">
+            </div>    
+        </div>
     <% }) %>
+    </div>
 
     <h3>Bottle Beers</h3>
+    <div class="bar">
     <% beers.forEach((beer) => { %>
-        <input type="checkbox" name="BeersBottle" value="<%= beer._id %>"><img src="<%= beer.beerlogoImage %>" alt="">
+        
+        <div class="flex location">
+            <div class="checkbox">
+                <input type="checkbox" name="BeersBottle" value="<%= beer._id %>">
+            </div>
+            <div class="img-beer">
+                 <img class="img-size" src="<%= beer.beerlogoImage %>" alt="">
+            </div>
+        </div>
+    
     <% }) %>
 
     <label for="">Direccion Google</label>

@@ -6,12 +6,13 @@ const { ObjectId } = Schema.Types;
 const userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
- 
+  city: {type: String},
   neighbourhood: {type: String},
   beerType: {type: String}, 
   
   favouriteBeers: [{type: ObjectId, ref: 'Beers'}], 
 
+  userimage: String,
 
 }, { timestamps: true });
 

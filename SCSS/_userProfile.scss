@@ -1,0 +1,55 @@
+.avatar-profile {
+    border-radius: 50%;
+    display: flex;
+    border: 1px solid $primary;
+    width: 130px;
+    height: 130px;
+    justify-content: center;
+    padding: 5px;
+    align-items: center;
+    
+}
+
+.size {
+  height: 100px;
+}
+.user-box-beer {
+    padding: 5px;
+    width: 100%;
+    background-color: $secondary;
+    margin: 0 0 5% 0;
+}
+.user-text {
+    padding: 5% 0;
+}
+
+.user-img-beer {
+    margin: 5%;
+    width: 50px;
+}
+
+.bar-name {
+    text-transform: uppercase;
+}
+.user-bars {
+    flex-direction: row;
+    margin: 0 0 10% 0;
+    width: 100%;
+    
+  
+}
+
+.user-bars-text {
+    text-align: left; 
+    margin: 0 10% 0 0;
+    
+    width: 100%;
+    
+}
+.link-bar {
+    width: 100%;
+    font-size: 1rem;
+}
+.size-link {
+    width: 100%;
+}

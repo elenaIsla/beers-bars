@@ -1,10 +1,25 @@
-<h1>Lista de usuarios</h1>
+<h2 class="normal">Lista de usuarios</h2>
 
-<ul>
+
     <% users.forEach((user) => { %>
-        <li><a href="/bars&beers/<%= user._id %>/userProfile"><%= user.username %> </a>
-            <%= user.neighbourhood %>
-            <%= user.beerType %>
-        </li>
+        <a class="hompePage-box" href="/bars&beers/<%= user._id %>/userProfile">
+            <div class="img-box avatar">
+                <img src="<%= user.userimage %>" alt="" onerror="if (this.src != '../img/avatar_standard.jpeg') this.src = '../img/avatar_standard.jpeg';">
+            </div>
+            <div class="text-box">
+                <h3 class="underline"><%= user.username %> </h3>
+                
+                <p class="text-size user-box"> Lives in <b class="bold"><%= user.neighbourhood %></b>, <%= user.city %></p>
+                <p class="text-size user-box"> Loves: <b class="bold"><%= user.beerType %></b> beer</p>
+            </div>
+        </a>
+    <div class="flex">
+        <div class="card-CRUD">
+            <form class="input_btn" action="/bars&beers/<%= user._id %>/deleteUser" method="post">
+             <input  type="submit" value="Delete">
+            </form>
+        </div>
+    </div>
+        
+        
    <% }) %>
-</ul>

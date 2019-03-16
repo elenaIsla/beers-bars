@@ -14,14 +14,14 @@ const storage = cloudinaryStorage({
   cloudinary,
   folder: 'img',
   allowedFormats: ['jpg', 'png'],
-  transformation: [{ width: 200, height: 200, crop: 'limit' }],
+  transformation: [{ width: 150, height: 150, crop: 'limit' }],
 });
 
 const parser = multer({ storage });
 
 /* GET bars&beers homepage. */
 router.get('/', function(req, res, next) {
-  res.render('BandB/homePage', { title: 'Bars&Beers'});
+  res.render('BandB/homePage', { title: 'Bars&Beers', layout: 'layouts/homePage'});
   
 });
 
@@ -109,6 +109,21 @@ router.post('/newbars', (req, res, next) => {
     });
 });
 
+/* POST  deleteBar page */
+
+router.post('/:idBar/deleteBar', (req, res, next) => {
+  const {idBar} = req.params;
+  Bar.findByIdAndDelete(idBar)
+    .then((bar) => {
+      res.redirect("/bars&beers");
+    }) 
+    .catch((error) => {
+      next(error);
+    })
+});
+
+
+
 /* GET-POST page create beer Form */
 router.get('/createBeer', function(req, res, next) {
   res.render('BandB/createBeer', { title: 'Bars&Beers'});
@@ -190,6 +205,19 @@ router.get('/users', function(req, res, next) {
   .catch((error) => {
     next(error);
   });
+});
+
+/* POST  deleteUser page */
+
+router.post('/:idUser/deleteUser', (req, res, next) => {
+  const {idUser} = req.params;
+  User.findByIdAndDelete(idUser)
+    .then((user) => {
+      res.redirect("/bars&beers/users");
+    }) 
+    .catch((error) => {
+      next(error);
+    })
 });
 
 /* GET draft beer bars page */
