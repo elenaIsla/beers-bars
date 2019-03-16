@@ -1,24 +1,47 @@
-<h2><%= user.username %></h2>
 
-<ul><% user.favouriteBeers.forEach((beer) => { %>
-    <li>
-        <%= beer.name %>
-    </li>
+ <div class="avatar-profile">
+        <img class="size" src="<%= user.userimage %>" alt="" onerror="if (this.src != '../img/avatar_standard.jpeg') this.src = '../img/avatar_standard.jpeg';">
+    </div>
+<h2 class="normal bold"><%= user.username %></h2>
+<div class="user-box-beer"> 
+    <h3 class="black">Loves above all:</h3>
+</div> 
+<% user.favouriteBeers.forEach((beer) => { %>
+      <% if (user.beerType === "bottle") { %>
+            <p class="user-text">Bottle Beer</p>
+        <% } else { %>
+            <p class="user-text">Drafted Beer</p>
+         <% } %>
+      <% }) %>   
+                           
+    <div class="user-box-beer">
+        <h3 class="black">Favourite beers:</h3> 
+    </div>
+    <div class="bar">
+<% user.favouriteBeers.forEach((beer) => { %>   
+     <div class="flex">
+         <div class="user-img-beer">
+            <img src="<%= beer.beerlogoImage %>" alt="">
+        </div>
+    </div>
     <% }) %>
-</ul>
-<ul>
+</div>
+    <div class="user-box-beer">
+        <h3 class="black">Bars created by this user:</h3>
+    </div>
+
         <% bars.forEach((bar) => { %>
-            
-            <li><%= bar.name %>
-                <%= bar.address.neighbourhood %>
-            
-            <div class="card-CRUD">
-                    <form class="input_btn" action="/bars&beers/<%= bar._id %>/deleteBar" method="post">
-                    <input  type="submit" value="Delete">
-                    </form>
-            </div>
-            
-            </li>
+    <div class="flex user-bars">  
+        <div class="user-bars-text">      
+            <h3 class="bar-name black"><%= bar.name %></h3>
+                <p class="user-text"><%= bar.address.neighbourhood %></p>
+                <p class="user-text"><%= bar.address.city %></p>
+        </div>            
+        <div class="text-box size-link">
+            <a class="green link-bar" href="#">View on map</a>
+        </div>
+    </div> 
         <% }) %>
-</ul>
+   
+  
     
