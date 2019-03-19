@@ -6,6 +6,7 @@ const multer = require('multer');
 // User model
 const User           = require("../models/user");
 const Beer = require('../models/beer');
+const middlewares = require('../middlewares');
 // BCrypt to encrypt passwords
 const bcrypt         = require("bcrypt");
 const bcryptSalt     = 10;
@@ -25,7 +26,7 @@ router.get('/', (req, res, next) => {
 });
 
 
-router.get("/signup", (req, res, next) => {
+router.get("/signup", middlewares.anonRoute, (req, res, next) => {
   Beer.find()
   .then((beers) => {
     res.render("auth/signup", {errorMessage: req.flash('error'), beers, layout: 'layouts/home'});
@@ -35,17 +36,17 @@ router.get("/signup", (req, res, next) => {
   })
 });
 
-router.post("/signup", parser.single('image'), (req, res, next) => {
+router.post("/signup", parser.single('image'), middlewares.anonRoute, (req, res, next) => {
   const {username, password, city, neighbourhood, beerType, favouriteBeers} = req.body;
   
   if (username === '' || password === '' ) {
-    req.flash('error', 'please enter a username or password');
+    req.flash('error', 'Please enter a username or password');
     return res.redirect('/signup');
   }
   User.findOne({username})
     .then((user) => {
       if(user){
-        req.flash('error', 'this username already exists');
+        req.flash('error', 'This username already exists');
         return res.redirect('/signup');
       } else {
         const salt     = bcrypt.genSaltSync(bcryptSalt);
@@ -62,6 +63,7 @@ router.post("/signup", parser.single('image'), (req, res, next) => {
         })
         .then((user) => {
           req.session.currentUser = user;
+          req.flash('success', 'Successful signup!');
           res.redirect("/bars&beers");
         })
         .catch((error) => {
@@ -74,30 +76,30 @@ router.post("/signup", parser.single('image'), (req, res, next) => {
     });
 });
 
-router.get("/login", (req, res, next) => {
+router.get("/login", middlewares.anonRoute, (req, res, next) => {
   res.render("auth/login", {errorMessage: req.flash('error'), layout: 'layouts/home'});
 });
 
-router.post("/login", (req, res, next) => {
+router.post("/login", middlewares.anonRoute, (req, res, next) => {
   const {username, password} = req.body;
   
 
   if (username === "" || password === "") {
-    req.flash('error', 'please enter a username or password');
+    req.flash('error', 'Please enter a username or password');
     return res.redirect("/login", );
   } else {
     User.findOne({ "username": username })
     .then(user => {
         if (!user) {
-          req.flash('error', 'this username does not exists')
+          req.flash('error', 'This username does not exists')
           return res.redirect("/login");
         } else if (bcrypt.compareSync(password, user.password)) {
           // Save the login in the session!
           req.session.currentUser = user;
-          req.flash('success', 'successful login!');
+          req.flash('success', 'Successful login!');
           return res.redirect("/bars&beers");
         } else {
-          req.flash('error', 'incorrect user');
+          req.flash('error', 'Incorrect user');
           return res.redirect("/login");
         }
     })

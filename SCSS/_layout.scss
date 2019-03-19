@@ -18,13 +18,14 @@ html {
         font-family: $font-primary, $font-secundary;
         font-size: $font-size;
         color: $secondary;
-        background-color: #fcfffa;
+        background-color: #fafafa;
         div {
             max-width: 100%;
         }
         p {
             padding: 10% 0%;
             color: $primary;
+            line-height: 1.4em;
         }
         h1 {
             padding: 5% 0%;

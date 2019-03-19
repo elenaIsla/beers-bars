@@ -1,19 +1,22 @@
-<h2>List of Bars with </h2>
 
-<ul>
-    <% bars.forEach((bar) => { %>
-    <div class="hompePage-box">
-        <h3><%= bar.name %> </h3>
-        <%= bar.description %>
-       <p>Address: </p> <%= bar.address.street %>
-       <p> City: </p> <%= bar.address.city %>
-       <p>Neighbourhood: </p> <%= bar.address.neighbourhood %>
-    </div>
+<h2 class="normal">List of Bars</h2>
+
+
+<% bars.forEach((bar) => { %>
+  <div class="hompePage-box block">
+            <h3 class="text-distance underline"><%= bar.name %> </h3>
+            <p class="text-distance"><%= bar.description %></p>
+           <p class="text-distance">Address:  <%= bar.address.street %> </p>
+           <p class="text-distance"> City:  <%= bar.address.city %></p>
+           <p class="text-distance">Neighbourhood:  <%= bar.address.neighbourhood %></p>
+          
+ </div>
 <div class="flex">
-        <div class="card-CRUD">
-            <form class="input_btn" action="/bars&beers/<%= bar._id %>/deleteBar" method="post">
-             <input  type="submit" value="Delete">
-            </form>
-        </div>
+            <div class="card-CRUD">
+                <form class="input_btn" action="/bars&beers/<%= bar._id %>/deleteBar" method="post">
+                 <input  type="submit" value="Delete">
+                </form>
+            </div>
 </div>
-   <% }) %>
+   
+<% }) %>

@@ -8,12 +8,13 @@ html {
     font-family: "Open Sans", sans-serif, "Gloria Hallelujah", cursive;
     font-size: 16px;
     color: #f4c734;
-    background-color: #fcfffa; }
+    background-color: #fafafa; }
     html body div {
       max-width: 100%; }
     html body p {
       padding: 10% 0%;
-      color: black; }
+      color: black;
+      line-height: 1.4em; }
     html body h1 {
       padding: 5% 0%;
       font-family: "Gloria Hallelujah", cursive;
@@ -46,11 +47,9 @@ a {
   text-align: center;
   margin: 10% auto;
   text-decoration: none;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px; }
-  a:hover {
-    background-color: #8000ff; }
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
 
 img {
   display: block;
@@ -73,11 +72,9 @@ button {
   text-align: center;
   margin: 10% auto;
   text-decoration: none;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px; }
-  button:hover {
-    background-color: #8000ff; }
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
 
 form {
   display: flex;
@@ -193,9 +190,13 @@ nav {
 .space {
   margin: 2% 0 0 0; }
 
+.center {
+  align-self: center;
+  padding: 5%; }
+
 .card_size {
-  width: 10px;
-  padding: 0 10px 0 0; }
+  width: 40%;
+  padding: 0.5rem; }
 
 .heading-size {
   font-size: 1.5rem;
@@ -213,6 +214,7 @@ nav {
   margin: 0 0 10% 0; }
 
 .input_btn {
+  width: 100%;
   padding: 11%;
   margin: 8px 0 0 0;
   background-color: grey;
@@ -221,15 +223,29 @@ nav {
   font-size: 1rem;
   text-align: center;
   text-decoration: none;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px; }
-  .input_btn:hover {
-    background-color: #8000ff; }
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid grey; }
 
 .card-CRUD {
   margin: 0 5% 0 0;
   width: 100%; }
+
+.white {
+  color: #fcfffa;
+  size: 1.15rem; }
+
+.size_beerbox {
+  width: 50%; }
+
+.center_mainBox {
+  align-items: center; }
+
+.input_btn_delete {
+  border: 1px solid grey;
+  background-color: grey;
+  padding: 0px; }
 
 .img-size {
   width: 100%; }
@@ -261,21 +277,22 @@ nav {
   padding: 2% 0 2% 3%; }
 
 .text-size {
-  font-size: 1.1rem; }
+  font-size: 1rem;
+  text-align: left; }
 
 .bold {
   font-weight: bold; }
 
-.underline {
-  font-size: 1.3rem;
-  padding: 0 0 5% 0;
-  text-decoration: underline; }
+.nounderline {
+  font-size: 1.15rem;
+  padding: 0 0 5% 0; }
 
 .user-box {
   padding: 5% 0 0 0; }
 
 .avatar {
-  width: 30%; }
+  width: 30%;
+  margin: 0 5% 0 0; }
 
 .avatar-profile {
   border-radius: 50%;
@@ -322,6 +339,53 @@ nav {
 
 .size-link {
   width: 100%; }
+
+.alert {
+  display: block;
+  font-size: 14px;
+  width: 250px;
+  padding: 5%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -90px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background-color: #fff;
+  color: #3a9ab9;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2); }
+
+.animateOpen {
+  -webkit-animation: moveOpen 4s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards; }
+
+/* Safari and Chrome */
+@-webkit-keyframes moveOpen {
+  from {
+    -webkit-transform: translate(0, -100px); }
+  10% {
+    -webkit-transform: translate(0, 70px); }
+  12% {
+    -webkit-transform: translate(0, 72px); }
+  16% {
+    -webkit-transform: translate(0, 70px); }
+  80% {
+    -webkit-transform: translate(0, 70px); }
+  85% {
+    -webkit-transform: translate(0, 70px); }
+  to {
+    -webkit-transform: translate(0, -100px); } }
+
+.alert-danger {
+  background-color: #E86346;
+  color: black; }
+
+.alert-success {
+  background-color: #8FE5AD;
+  color: black; }
 
 .login-container {
   width: 100%; }
@@ -381,12 +445,13 @@ html {
     font-family: "Open Sans", sans-serif, "Gloria Hallelujah", cursive;
     font-size: 16px;
     color: #f4c734;
-    background-color: #fcfffa; }
+    background-color: #fafafa; }
     html body div {
       max-width: 100%; }
     html body p {
       padding: 10% 0%;
-      color: black; }
+      color: black;
+      line-height: 1.4em; }
     html body h1 {
       padding: 5% 0%;
       font-family: "Gloria Hallelujah", cursive;

@@ -6,23 +6,23 @@
 <p class="subheading">Search your favourite beer and find all bars with this drafted or bottled beer!</p>
 
     <% beers.forEach((beer) => { %>
-        <div class="hompePage-box">
+        <div class="hompePage-box center_mainBox">
                  <div class="img-box">
                     <img src="<%= beer.beerlogoImage %>" alt="">
                  </div>
 
-                <div class="text-box space">
+                <div class="text-box center size_beerbox">
                     <a class="green" href="/bars&beers/<%= beer._id %>/draftBars">
                         <div class="img-box card_size">
-                            <img src="img/draft_beer.svg" alt="draft beer">
+                            <img class="card_size" src="img/draft_beer.svg" alt="draft beer">
                         </div>
-                        <div class="text-box">Draft</div>
+                        <div class="text-box center"><p class="white">Draft</p></div>
                     </a>
                     <a class="bluecard" href="/bars&beers/<%= beer._id %>/bottleBars">
                         <div class="img-box card_size">
-                            <img  src="img/bottle_beer.svg" alt="draft beer">
+                            <img class="card_size" src="img/bottle_beer.svg" alt="draft beer">
                         </div>
-                        <div class="text-box">Bottle</div>
+                        <div class="text-box center"><p class="white">Bottle</p></div>
                     </a>
                 </div>
           
@@ -34,7 +34,7 @@
                 </div>
                 <div class="card-CRUD">
                     <form class="input_btn" action="/bars&beers/<%= beer._id %>/delete" method="post">
-                    <input  type="submit" value="Delete">
+                    <input class="input_btn_delete" type="submit" value="Delete">
                     </form>
                 </div>
             </div>

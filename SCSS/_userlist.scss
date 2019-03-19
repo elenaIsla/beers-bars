@@ -1,13 +1,14 @@
 .text-size {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    text-align: left;
 }
 .bold {
     font-weight: bold;
 }
-.underline {
-    font-size: 1.3rem;
+.nounderline {
+    font-size: 1.15rem;
     padding: 0 0 5% 0;
-    text-decoration: underline;
+    
 }
 .user-box {
     padding: 5% 0 0 0;
@@ -15,4 +16,5 @@
 
 .avatar {
    width: 30%;
+   margin: 0 5% 0 0;
 }

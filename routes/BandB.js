@@ -33,7 +33,7 @@ router.get('/googlemap', function(req, res, next) {
 });
 
 /* GET bars&beers API. */
-router.get('/api', function(req, res, next) {
+router.get('/api', (req, res, next) => {
   Bar.find({}, (error, allBarsFromDB) => {
 		if (error) { 
 			next(error); 
@@ -58,7 +58,7 @@ router.get('/api/:id', (req, res, next) => {
 });
 
 /* GET-POST newbars FORM page*/
-router.get('/newbars', function(req, res, next) {
+router.get('/newbars', (req, res, next) => {
   Beer.find()
   .then((beers) => {
   res.render('BandB/newbars', { title: 'Bars&Beers', beers});
@@ -78,7 +78,7 @@ router.post('/newbars', (req, res, next) => {
   Bar.findOne({name})
     .then((nameBar) => {
       if(nameBar){
-        req.flash('error', 'this bar already exists');
+        req.flash('error', 'This bar already exists');
         return res.redirect('/bars&beers/newbars');
       } else {
         Bar.create({
@@ -97,6 +97,7 @@ router.post('/newbars', (req, res, next) => {
           location,
         })
         .then((bar) => {
+          req.flash('success', 'Bar created successfully!');
           res.redirect("/bars&beers");
         })
         .catch((error) => {
@@ -125,7 +126,7 @@ router.post('/:idBar/deleteBar', (req, res, next) => {
 
 
 /* GET-POST page create beer Form */
-router.get('/createBeer', function(req, res, next) {
+router.get('/createBeer', (req, res, next) => {
   res.render('BandB/createBeer', { title: 'Bars&Beers'});
 });
 
@@ -185,7 +186,7 @@ router.post('/:id/delete', (req, res, next) => {
 });
 
 /* GET beerlist page. */
-router.get('/beers', function(req, res, next) {
+router.get('/beers', (req, res, next) => {
   console.log();
   Beer.find()
   .then((beers) => {
@@ -197,7 +198,7 @@ router.get('/beers', function(req, res, next) {
 });
 
 /* GET users listing. */
-router.get('/users', function(req, res, next) {
+router.get('/users', (req, res, next) => {
   User.find()
   .then((users) => {
   res.render('BandB/userlist', { title: 'Bars&Beers', users});
@@ -221,7 +222,7 @@ router.post('/:idUser/deleteUser', (req, res, next) => {
 });
 
 /* GET draft beer bars page */
-router.get('/:id/draftBars', function(req, res, next) {
+router.get('/:id/draftBars', (req, res, next) => {
   const {id} = req.params;
   Bar.find({BeersDraft: id})
   .then((bars) => {
@@ -233,7 +234,7 @@ router.get('/:id/draftBars', function(req, res, next) {
 });
 
 /* GET bottle beer bars page */
-router.get('/:id/bottleBars', function(req, res, next) {
+router.get('/:id/bottleBars', (req, res, next) => {
   const {id} = req.params;
   Bar.find({BeersBottle: id})
   .then((bars) => {
@@ -245,7 +246,7 @@ router.get('/:id/bottleBars', function(req, res, next) {
 });
 
 /* GET user profile page */
-router.get('/:iduser/userProfile', function(req, res, next) {
+router.get('/:iduser/userProfile', (req, res, next) => {
   const {iduser} = req.params;
 
   

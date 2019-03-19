@@ -2,6 +2,7 @@
     background-color: $fifthy;
     display: flex;
     
+    
    }
 
 .bluecard {
@@ -13,9 +14,15 @@
     margin: 2% 0 0 0;
     
 }
+.center {
+    align-self: center;
+    padding: 5%;
+}
 .card_size {
-    width: 10px;
-    padding: 0 10px 0 0;
+    width: 40%;
+    padding: 0.5rem;
+   
+   
 }
 .heading-size {
     font-size: 1.5rem;
@@ -36,6 +43,7 @@
     margin: 0 0 10% 0;
 }
 .input_btn {
+    width: 100%;
     padding: 11%;
     margin: 8px 0 0 0;
     background-color: grey;
@@ -44,15 +52,32 @@
     font-size: 1rem;
     text-align: center;
     text-decoration: none;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    &:hover {
-        background-color: $fourthy;
-}
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid grey;
+ 
 }
 
 .card-CRUD {
     margin: 0 5% 0 0;
     width: 100%;
+}
+.white {
+    color: $terciary;
+    size: 1.15rem;
+}
+.size_beerbox {
+    width: 50%;
+    
+
+}
+.center_mainBox {
+    align-items: center;
+}
+
+.input_btn_delete {
+    border: 1px solid grey;
+    background-color: grey;
+    padding: 0px;
 }

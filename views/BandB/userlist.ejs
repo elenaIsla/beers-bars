@@ -7,19 +7,21 @@
                 <img src="<%= user.userimage %>" alt="" onerror="if (this.src != '../img/avatar_standard.jpeg') this.src = '../img/avatar_standard.jpeg';">
             </div>
             <div class="text-box">
-                <h3 class="underline"><%= user.username %> </h3>
+                <h3 class="nounderline"><%= user.username %> </h3>
                 
                 <p class="text-size user-box"> Lives in <b class="bold"><%= user.neighbourhood %></b>, <%= user.city %></p>
                 <p class="text-size user-box"> Loves: <b class="bold"><%= user.beerType %></b> beer</p>
             </div>
         </a>
+
+        <% if(currentUser.username === "admin") { %>
     <div class="flex">
         <div class="card-CRUD">
             <form class="input_btn" action="/bars&beers/<%= user._id %>/deleteUser" method="post">
-             <input  type="submit" value="Delete">
+             <input class="input_btn_delete" type="submit" value="Delete">
             </form>
         </div>
     </div>
-        
+    <% } %>
         
    <% }) %>
