@@ -95,8 +95,8 @@ router.post("/login", middlewares.anonRoute, (req, res, next) => {
           return res.redirect("/login");
         } else if (bcrypt.compareSync(password, user.password)) {
           // Save the login in the session!
-          req.session.currentUser = user;
           req.flash('success', 'Successful login!');
+          req.session.currentUser = user;
           return res.redirect("/bars&beers");
         } else {
           req.flash('error', 'Incorrect user');

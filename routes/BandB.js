@@ -8,6 +8,7 @@ const User = require('../models/user');
 const Beer = require('../models/beer');
 const Bar = require('../models/bar');
 
+
 router.use(express.static(path.join(__dirname, '../public')));
 
 const storage = cloudinaryStorage({

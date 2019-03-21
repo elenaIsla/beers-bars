@@ -66,7 +66,8 @@ window.onload = () => {
     
     const map = new google.maps.Map(document.getElementById('map'), {
       zoom: 13,
-      center: ironhackBCN
+      center: ironhackBCN,
+      disableDefaultUI: true
     });
   
     let center = {
@@ -132,8 +133,6 @@ function geocodeAddress(geocoder, resultsMap) {
   });
 }
 geocodeAddress(geocoder, map);
-
-
 
 };
 

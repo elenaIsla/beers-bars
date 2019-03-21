@@ -6,10 +6,10 @@ window.onload = () => {
      console.log('hola');
     const markers = []
     
-    const map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 13,
-      center: ironhackBCN
-    });
+    // const map = new google.maps.Map(document.getElementById('map'), {
+    //   zoom: 13,
+    //   center: center,
+    // });
   
     let center = {
       lat: undefined,
@@ -20,7 +20,8 @@ window.onload = () => {
         axios.get("/bars&beers/api")
          .then( response => {
              console.log(response.data.bars);
-           placeBars(response.data.bars);
+        //    placeBars(response.data.bars);
+            getoneBar(response.data.bars);
          })
          .catch(error => {
            console.log(error);
@@ -28,16 +29,24 @@ window.onload = () => {
        }
 // colocar un marker
     
-// function getoneBar() {
-//     axios.get("/bars&beers/api")
-//      .then( response => {
-//          console.log(response.data.bars);
-        
-//      })
-//      .catch(error => {
-//        console.log(error);
-//      })
-//    }
+    function getoneBar(barmodel){
+        let center = {
+            lat: barmodel[6].location.coordinates[1],
+            lng: barmodel[6].location.coordinates[0]
+          }; 
+        const map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 20,
+            center: center,
+          });
+        const IronhackBCNMarker = new google.maps.Marker({
+            position: {
+            lat: barmodel[6].location.coordinates[1],
+            lng: barmodel[6].location.coordinates[0],
+            },
+            map: map,
+            title: "poner un marker"
+        });
+    }
 
 
     function placeBars(barmodels){
@@ -45,8 +54,8 @@ window.onload = () => {
         barmodels.forEach(function(bar){
             console.log(bar);
           const center = {
-            lat: parseInt(bar.location.coordinates[0]),
-            lng: parseInt(bar.location.coordinates[1])
+            lat: parseInt(bar.location.coordinates[1]),
+            lng: parseInt(bar.location.coordinates[0])
           };
           const pin = new google.maps.Marker({
             position: center,
@@ -54,10 +63,10 @@ window.onload = () => {
             title: bar.name
           });
           markers.push(pin);
-          console.log(markers);
+          console.log(pin);
         });
     }
-// getBars();
+getBars();
 
 
 

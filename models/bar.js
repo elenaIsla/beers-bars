@@ -17,6 +17,7 @@ const barSchema = new Schema({
     BeersBottle: [{type: ObjectId, ref: 'Beer'}],
     creator: {type: ObjectId, ref: 'User'},
     location: { type: { type: String }, coordinates: [Number] },
+    
 });
 barSchema.index({ location: '2dsphere' });
 

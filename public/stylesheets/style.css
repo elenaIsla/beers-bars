@@ -266,6 +266,25 @@ nav {
 .black {
   color: black; }
 
+.address-class {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+
+.button-address {
+  border: 3px solid #00b084;
+  background-color: #00b084;
+  color: white;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 1.1rem; }
+
+.address-text-class {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin: 0px 0px 20px 0px; }
+
 .normal {
   font-family: "Open Sans", sans-serif; }
 
